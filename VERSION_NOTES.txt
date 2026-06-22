@@ -1,0 +1,42 @@
+AMCHAM PHILIPPINES REDESIGN — VERSION 5 WORKING BUILD
+Updated: 2026-06-21
+Status: UNLOCKED / UNDER REVIEW
+
+BASELINE
+- Built from the approved and locked Version 4.
+- Version 4 remains unchanged.
+
+LATEST SLIDER UPDATE
+- Replaced the earlier concept/logo slides with the same 12 promotional banner artworks used by the live AmCham homepage slider.
+- Uses AmCham's official Elementor template stylesheet (post-10695.css) and its original repeater classes so the live promotional artwork is loaded directly from the official website.
+- Preserved the source destinations supplied in the inspected live HTML.
+
+PROMOTIONS INCLUDED
+1. Globe Business
+2. Bechtel
+3. Converge / AmCham Membership Directory
+4. Biscom
+5. SGV
+6. Belmont
+7. Marriott
+8. Mondelez
+9. BDO
+10. McCormick
+11. Corporate Gifts
+12. Business Trends
+
+INTERACTION
+- Autoplay with animated progress
+- Previous / next controls
+- Play / pause control
+- Clickable pagination
+- Mouse, touch and pen swipe
+- Keyboard navigation
+- Pause on hover and focus
+- Day and night mode styling
+- Responsive 5:3 artwork presentation
+- Reduced-motion support
+
+IMPORTANT
+- Internet access is required because the promotional images are loaded from AmCham Philippines' official Elementor stylesheet and media library.
+- Do not lock Version 5 until it has been reviewed and explicitly approved.

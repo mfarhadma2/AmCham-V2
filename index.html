@@ -19,11 +19,12 @@
       }
     })();
   </script>
-<meta content="A modern homepage redesign concept for the American Chamber of Commerce of the Philippines." name="description"/>
-<title>AmCham Philippines — Business Moves Forward</title>
+<meta content="A modern homepage redesign concept for the American Chamber of Commerce of the Philippines, Version 5 with the official AmCham promotional image carousel." name="description"/>
+<title>AmCham Philippines — Business Moves Forward | Version 5</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<link href="https://amchamphilippines.com/wp-content/uploads/elementor/css/post-10695.css?ver=1781774373" rel="stylesheet"/>
 <style>
     :root {
       --navy-950: #041224;
@@ -938,6 +939,137 @@
 
     ::view-transition-old(root),
     ::view-transition-new(root) { animation-duration: .5s; animation-timing-function: var(--ease); }
+
+
+    /* =========================================================
+       Version 5 — post-ARTA official promotional image carousel
+       The exact banner artwork is supplied by AmCham's live
+       Elementor template stylesheet (post-10695.css).
+       ========================================================= */
+    .community-showcase {
+      position: relative; overflow: hidden; padding: 26px 0 104px;
+      background:
+        radial-gradient(circle at 8% 15%, rgba(239,51,73,.09), transparent 24%),
+        radial-gradient(circle at 92% 70%, rgba(52,113,190,.12), transparent 28%),
+        var(--surface-0);
+    }
+    .community-showcase::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .38;
+      background-image: linear-gradient(rgba(7,26,51,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(7,26,51,.035) 1px, transparent 1px);
+      background-size: 36px 36px; mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
+    }
+    .showcase-head {
+      position: relative; z-index: 2; display: flex; align-items: end; justify-content: space-between;
+      gap: 28px; margin-bottom: 28px;
+    }
+    .showcase-head h2 {
+      margin: 11px 0 0; max-width: 760px; color: var(--text-strong);
+      font-size: clamp(34px, 4.2vw, 57px); line-height: 1; letter-spacing: -.045em;
+    }
+    .showcase-head h2 em { color: var(--red-600); font-family: "Playfair Display", serif; font-weight: 600; }
+    .showcase-head p { max-width: 670px; margin: 16px 0 0; color: var(--text-muted); line-height: 1.75; }
+    .showcase-controls { display: flex; align-items: center; gap: 9px; flex: 0 0 auto; }
+    .showcase-control {
+      width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 50%;
+      display: grid; place-items: center; color: var(--text-strong); background: var(--surface-1);
+      cursor: pointer; box-shadow: var(--shadow-sm); transition: transform .24s var(--ease), background .24s ease, border-color .24s ease;
+    }
+    .showcase-control:hover { transform: translateY(-2px); background: var(--surface-2); border-color: rgba(239,51,73,.35); }
+    .showcase-control svg { pointer-events: none; }
+    .showcase-play .pause-icon { display: block; }
+    .showcase-play .play-icon { display: none; }
+    .showcase-play[aria-pressed="true"] .pause-icon { display: none; }
+    .showcase-play[aria-pressed="true"] .play-icon { display: block; }
+
+    .showcase-carousel {
+      --slide: 0; position: relative; z-index: 2; overflow: hidden;
+      border: 1px solid rgba(122,145,175,.22); border-radius: 32px;
+      background: #061426; box-shadow: 0 34px 90px rgba(4,18,36,.2);
+      touch-action: pan-y; cursor: grab;
+    }
+    .showcase-carousel.dragging { cursor: grabbing; }
+    .showcase-track {
+      display: flex; transform: translate3d(calc(var(--slide) * -100%), 0, 0);
+      transition: transform .72s cubic-bezier(.2,.78,.2,1); will-change: transform;
+    }
+    .showcase-carousel.dragging .showcase-track { transition: none; }
+    .showcase-slide {
+      min-width: 100%; position: relative; overflow: hidden; aspect-ratio: 5 / 3;
+      background: #091a30; isolation: isolate;
+    }
+    .showcase-ad {
+      position: absolute; inset: 0; display: block; overflow: hidden;
+      background: #fff;
+    }
+    .showcase-ad .swiper-slide-bg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      background-position: center !important; background-repeat: no-repeat !important;
+      background-size: cover !important; transform: scale(1.001);
+      transition: transform 1.1s cubic-bezier(.2,.75,.2,1), filter .35s ease;
+    }
+    .showcase-slide.is-active .showcase-ad .swiper-slide-bg { transform: scale(1.018); }
+    .showcase-ad::after {
+      content: ""; position: absolute; inset: auto 0 0; height: 18%; pointer-events: none;
+      background: linear-gradient(to top, rgba(4,18,36,.19), transparent);
+      opacity: .36;
+    }
+    .showcase-ad:hover .swiper-slide-bg { transform: scale(1.028); }
+    .showcase-slide-title {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+    .showcase-ordinal {
+      position: absolute; right: 18px; top: 18px; z-index: 3; min-width: 68px; padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,.34); border-radius: 999px; color: white;
+      background: rgba(4,18,36,.64); backdrop-filter: blur(12px);
+      font-size: 10px; font-weight: 800; letter-spacing: .1em; text-align: center;
+      box-shadow: 0 10px 30px rgba(4,18,36,.18); pointer-events: none;
+    }
+
+    .showcase-footer {
+      position: relative; z-index: 3; padding: 18px 20px; display: grid; grid-template-columns: auto 1fr auto;
+      gap: 18px; align-items: center; border-top: 1px solid rgba(255,255,255,.1); color: white;
+      background: rgba(3,13,27,.82); backdrop-filter: blur(14px);
+    }
+    .showcase-count { min-width: 56px; font-size: 11px; font-weight: 800; letter-spacing: .11em; }
+    .showcase-count span { color: #ff6274; }
+    .showcase-progress { height: 3px; overflow: hidden; border-radius: 999px; background: rgba(255,255,255,.15); }
+    .showcase-progress-bar { width: 100%; height: 100%; transform: scaleX(0); transform-origin: left center; background: linear-gradient(90deg, #ef3349, #ff8a99); }
+    .showcase-progress-bar.running { animation: showcaseProgress 5.6s linear forwards; }
+    @keyframes showcaseProgress { to { transform: scaleX(1); } }
+    .showcase-dots { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 6px; max-width: 248px; }
+    .showcase-dot {
+      width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: rgba(255,255,255,.28); cursor: pointer;
+      transition: width .28s var(--ease), border-radius .28s var(--ease), background .28s ease;
+    }
+    .showcase-dot[aria-current="true"] { width: 25px; border-radius: 99px; background: var(--red-500); }
+    .showcase-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    html[data-theme="dark"] .community-showcase { background: radial-gradient(circle at 8% 15%, rgba(239,51,73,.1), transparent 24%), radial-gradient(circle at 92% 70%, rgba(58,123,205,.13), transparent 28%), var(--surface-0); }
+    html[data-theme="dark"] .community-showcase::before { background-image: linear-gradient(rgba(180,204,233,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(180,204,233,.035) 1px, transparent 1px); }
+    html[data-theme="dark"] .showcase-control { color: var(--text-strong); background: var(--surface-1); border-color: var(--line); }
+    html[data-theme="dark"] .showcase-carousel { border-color: rgba(85,117,153,.3); box-shadow: 0 35px 95px rgba(0,0,0,.43); }
+
+    @media (max-width: 860px) {
+      .community-showcase { padding: 12px 0 82px; }
+      .showcase-slide { aspect-ratio: 5 / 3; }
+      .showcase-head { align-items: flex-start; }
+      .showcase-head p { font-size: 14px; }
+    }
+
+    @media (max-width: 620px) {
+      .showcase-head { display: grid; gap: 20px; }
+      .showcase-head h2 { font-size: 39px; }
+      .showcase-controls { gap: 6px; }
+      .showcase-control { width: 41px; height: 41px; }
+      .showcase-carousel { border-radius: 22px; }
+      .showcase-slide { aspect-ratio: 5 / 3; min-height: 0; }
+      .showcase-ad .swiper-slide-bg { background-size: contain !important; background-color: #fff; }
+      .showcase-ordinal { right: 10px; top: 10px; min-width: 58px; padding: 7px 9px; font-size: 9px; }
+      .showcase-footer { grid-template-columns: auto 1fr; gap: 12px; padding: 15px 16px; }
+      .showcase-dots { grid-column: 1 / -1; justify-content: center; max-width: none; }
+    }
+
   </style>
 </head>
 <body>
@@ -1274,6 +1406,90 @@
 </div>
 </div>
 </section>
+
+<section aria-labelledby="showcaseTitle" class="community-showcase elementor elementor-10695" id="featured-partners">
+<div class="container">
+<div class="showcase-head reveal">
+<div><span class="eyebrow">Featured from the business community</span><h2 id="showcaseTitle">Official partner campaigns from the <em>AmCham network.</em></h2><p>The original promotional artwork from the live AmCham homepage is presented in a cleaner, responsive and fully interactive carousel.</p></div>
+<div aria-label="Slider controls" class="showcase-controls">
+<button aria-label="Previous promotion" class="showcase-control" id="showcasePrev" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="19"><path d="m15 18-6-6 6-6"></path></svg></button>
+<button aria-label="Pause automatic slides" aria-pressed="false" class="showcase-control showcase-play" id="showcasePlay" type="button"><svg class="pause-icon" fill="currentColor" viewbox="0 0 24 24" width="17"><path d="M7 5h4v14H7zM13 5h4v14h-4z"></path></svg><svg class="play-icon" fill="currentColor" viewbox="0 0 24 24" width="18"><path d="m8 5 11 7-11 7z"></path></svg></button>
+<button aria-label="Next promotion" class="showcase-control" id="showcaseNext" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="19"><path d="m9 18 6-6-6-6"></path></svg></button>
+</div>
+</div>
+<div aria-label="AmCham promotional campaigns" aria-roledescription="carousel" class="showcase-carousel reveal elementor-element elementor-element-98293b2" id="showcaseCarousel" role="region" tabindex="0">
+<div class="showcase-track" id="showcaseTrack">
+<article aria-label="1 of 12" aria-roledescription="slide" class="showcase-slide elementor-repeater-item-6089118 is-active">
+<h3 class="showcase-slide-title">Globe Business BANDWIDTH PLUS - ACQUISITION (14)</h3>
+<a aria-label="Open Globe Business BANDWIDTH PLUS - ACQUISITION (14)" class="showcase-ad" href="https://bit.ly/GlobeDirectINet" rel="noreferrer" target="_blank"><div aria-label="Globe Business BANDWIDTH PLUS - ACQUISITION (14)" class="swiper-slide-bg" role="img"></div></a>
+<span aria-hidden="true" class="showcase-ordinal">01 / 12</span>
+</article>
+<article aria-label="2 of 12" aria-roledescription="slide" class="showcase-slide elementor-repeater-item-ca9048d">
+<h3 class="showcase-slide-title">Bechtel</h3>
+<a aria-label="Open Bechtel" class="showcase-ad" href="https://bit.ly/BechtelOnAmCham" rel="noreferrer" target="_blank"><div aria-label="Bechtel" class="swiper-slide-bg" role="img"></div></a>
+<span aria-hidden="true" class="showcase-ordinal">02 / 12</span>
+</article>
+<article aria-label="3 of 12" aria-roledescription="slide" class="showcase-slide elementor-repeater-item-8d6dbd2">
+<h3 class="showcase-slide-title">2024 AmCham Membership Directory Ad</h3>
+<a aria-label="Open 2024 AmCham Membership Directory Ad" class="showcase-ad" href="https://bit.ly/CovergeICT" rel="noreferrer" target="_blank"><div aria-label="2024 AmCham Membership Directory Ad" class="swiper-slide-bg" role="img"></div></a>
+<span aria-hidden="true" class="showcase-ordinal">03 / 12</span>
+</article>
+<article aria-label="4 of 12" aria-roledescription="slide" class="showcase-slide elementor-repeater-item-5848366">
+<h3 class="showcase-slide-title">Biscom Ad</h3>
+<a aria-label="Open Biscom Ad" class="showcase-ad" href="mailto:biscominc.makati@gmail.com" rel="noreferrer" target="_blank"><div aria-label="Biscom Ad" class="swiper-slide-bg" role="img"></div></a>
+<span aria-hidden="true" class="showcase-ordinal">04 / 12</span>
+</article>
+<article aria-label="5 of 12" aria-roledescription="slide" class="showcase-slide elementor-repeater-item-32b7939">
+<h3 class="showcase-slide-title">SGV Membership Directory Ad</h3>
+<a aria-label="Open SGV Membership Directory Ad" class="showcase-ad" href="http://www.sgv.ph/" rel="noreferrer" target="_blank"><div aria-label="SGV Membership Directory Ad" class="swiper-slide-bg" role="img"></div></a>
+<span aria-hidden="true" class="showcase-ordinal">05 / 12</span>
+</article>
+<article aria-label="6 of 12" aria-roledescription="slide" class="showcase-slide elementor-repeater-item-633401b">
+<h3 class="showcase-slide-title">Belmont</h3>
+<div aria-label="Belmont" class="showcase-ad" role="img"><div aria-hidden="true" class="swiper-slide-bg"></div></div>
+<span aria-hidden="true" class="showcase-ordinal">06 / 12</span>
+</article>
+<article aria-label="7 of 12" aria-roledescription="slide" class="showcase-slide elementor-repeater-item-2530e0f">
+<h3 class="showcase-slide-title">Marriott Hotel — We Are Growing</h3>
+<div aria-label="Marriott Hotel — We Are Growing" class="showcase-ad" role="img"><div aria-hidden="true" class="swiper-slide-bg"></div></div>
+<span aria-hidden="true" class="showcase-ordinal">07 / 12</span>
+</article>
+<article aria-label="8 of 12" aria-roledescription="slide" class="showcase-slide elementor-repeater-item-702a79d">
+<h3 class="showcase-slide-title">Mondelez Corporate Ad</h3>
+<a aria-label="Open Mondelez Corporate Ad" class="showcase-ad" href="https://bit.ly/MondelezxAmCham" rel="noreferrer" target="_blank"><div aria-label="Mondelez Corporate Ad" class="swiper-slide-bg" role="img"></div></a>
+<span aria-hidden="true" class="showcase-ordinal">08 / 12</span>
+</article>
+<article aria-label="9 of 12" aria-roledescription="slide" class="showcase-slide elementor-repeater-item-132b82d">
+<h3 class="showcase-slide-title">BDO Membership Directory Ad</h3>
+<a aria-label="Open BDO Membership Directory Ad" class="showcase-ad" href="https://bit.ly/BDOonOMD" rel="noreferrer" target="_blank"><div aria-label="BDO Membership Directory Ad" class="swiper-slide-bg" role="img"></div></a>
+<span aria-hidden="true" class="showcase-ordinal">09 / 12</span>
+</article>
+<article aria-label="10 of 12" aria-roledescription="slide" class="showcase-slide elementor-repeater-item-4bfbb5a">
+<h3 class="showcase-slide-title">McCormick Soup and Salad</h3>
+<a aria-label="Open McCormick Soup and Salad" class="showcase-ad" href="https://store.mccormick.com.ph/" rel="noreferrer" target="_blank"><div aria-label="McCormick Soup and Salad" class="swiper-slide-bg" role="img"></div></a>
+<span aria-hidden="true" class="showcase-ordinal">10 / 12</span>
+</article>
+<article aria-label="11 of 12" aria-roledescription="slide" class="showcase-slide elementor-repeater-item-918b9e3">
+<h3 class="showcase-slide-title">Corporate Gifts 2025</h3>
+<a aria-label="Open Corporate Gifts 2025" class="showcase-ad" href="http://www.corporategifts.com.ph/" rel="noreferrer" target="_blank"><div aria-label="Corporate Gifts 2025" class="swiper-slide-bg" role="img"></div></a>
+<span aria-hidden="true" class="showcase-ordinal">11 / 12</span>
+</article>
+<article aria-label="12 of 12" aria-roledescription="slide" class="showcase-slide elementor-repeater-item-db70912">
+<h3 class="showcase-slide-title">Business Trends</h3>
+<a aria-label="Open Business Trends" class="showcase-ad" href="https://www.businesstrendsph.com/" rel="noreferrer" target="_blank"><div aria-label="Business Trends" class="swiper-slide-bg" role="img"></div></a>
+<span aria-hidden="true" class="showcase-ordinal">12 / 12</span>
+</article>
+</div>
+<div class="showcase-footer">
+<div class="showcase-count"><span id="showcaseCurrent">01</span> / 12</div>
+<div aria-hidden="true" class="showcase-progress"><div class="showcase-progress-bar" id="showcaseProgress"></div></div>
+<div aria-label="Choose a promotion" class="showcase-dots" id="showcaseDots"></div>
+</div>
+<div aria-live="polite" aria-atomic="true" class="showcase-live" id="showcaseLive"></div>
+</div>
+</div>
+</section>
+
 <section class="section contact-concierge" id="contact">
 <div class="container">
 <div class="contact-shell reveal">
@@ -1482,6 +1698,159 @@
       e.preventDefault(); const email = document.getElementById('emailInput'); const note = document.getElementById('formNote');
       note.textContent = `Thanks — ${email.value} has been added to this design prototype's demo list.`; email.value = '';
     });
+
+
+
+
+    // Version 5 official promotional-image carousel: autoplay, keyboard, swipe and pause controls.
+    const showcaseCarousel = document.getElementById('showcaseCarousel');
+    if (showcaseCarousel) {
+      const showcaseTrack = document.getElementById('showcaseTrack');
+      const showcaseSlides = [...showcaseTrack.querySelectorAll('.showcase-slide')];
+      const showcasePrev = document.getElementById('showcasePrev');
+      const showcaseNext = document.getElementById('showcaseNext');
+      const showcasePlay = document.getElementById('showcasePlay');
+      const showcaseCurrent = document.getElementById('showcaseCurrent');
+      const showcaseProgress = document.getElementById('showcaseProgress');
+      const showcaseDots = document.getElementById('showcaseDots');
+      const showcaseLive = document.getElementById('showcaseLive');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const interval = 5600;
+      let showcaseIndex = 0;
+      let showcaseTimer = 0;
+      let showcasePaused = reducedMotion.matches;
+      let pointerStart = 0;
+      let pointerDelta = 0;
+      let dragging = false;
+
+      showcaseSlides.forEach((slide, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'showcase-dot';
+        dot.setAttribute('aria-label', `Go to featured partner ${index + 1}`);
+        dot.addEventListener('click', () => goToShowcase(index, true));
+        showcaseDots.appendChild(dot);
+      });
+      const showcaseDotButtons = [...showcaseDots.children];
+
+      function restartShowcaseProgress() {
+        showcaseProgress.classList.remove('running');
+        void showcaseProgress.offsetWidth;
+        if (!showcasePaused && !reducedMotion.matches) showcaseProgress.classList.add('running');
+      }
+
+      function renderShowcase(announce = false) {
+        showcaseCarousel.style.setProperty('--slide', showcaseIndex);
+        showcaseSlides.forEach((slide, index) => {
+          const active = index === showcaseIndex;
+          slide.classList.toggle('is-active', active);
+          slide.setAttribute('aria-hidden', String(!active));
+          slide.querySelectorAll('a, button').forEach(el => el.tabIndex = active ? 0 : -1);
+        });
+        showcaseDotButtons.forEach((dot, index) => dot.setAttribute('aria-current', String(index === showcaseIndex)));
+        showcaseCurrent.textContent = String(showcaseIndex + 1).padStart(2, '0');
+        if (announce) {
+          const heading = showcaseSlides[showcaseIndex].querySelector('h3')?.textContent || `Featured partner ${showcaseIndex + 1}`;
+          showcaseLive.textContent = `Slide ${showcaseIndex + 1} of ${showcaseSlides.length}: ${heading}`;
+        }
+        restartShowcaseProgress();
+      }
+
+      function scheduleShowcase() {
+        clearTimeout(showcaseTimer);
+        if (!showcasePaused && !reducedMotion.matches) {
+          showcaseTimer = window.setTimeout(() => {
+            showcaseIndex = (showcaseIndex + 1) % showcaseSlides.length;
+            renderShowcase();
+            scheduleShowcase();
+          }, interval);
+        }
+      }
+
+      function goToShowcase(index, announce = true) {
+        showcaseIndex = (index + showcaseSlides.length) % showcaseSlides.length;
+        renderShowcase(announce);
+        scheduleShowcase();
+      }
+
+      function syncShowcasePlayButton() {
+        showcasePlay.setAttribute('aria-pressed', String(showcasePaused));
+        showcasePlay.setAttribute('aria-label', showcasePaused ? 'Play automatic slides' : 'Pause automatic slides');
+      }
+
+      showcasePrev.addEventListener('click', () => goToShowcase(showcaseIndex - 1));
+      showcaseNext.addEventListener('click', () => goToShowcase(showcaseIndex + 1));
+      showcasePlay.addEventListener('click', () => {
+        showcasePaused = !showcasePaused;
+        syncShowcasePlayButton();
+        restartShowcaseProgress();
+        scheduleShowcase();
+      });
+
+      showcaseCarousel.addEventListener('keydown', event => {
+        if (event.key === 'ArrowLeft') { event.preventDefault(); goToShowcase(showcaseIndex - 1); }
+        if (event.key === 'ArrowRight') { event.preventDefault(); goToShowcase(showcaseIndex + 1); }
+        if (event.key === 'Home') { event.preventDefault(); goToShowcase(0); }
+        if (event.key === 'End') { event.preventDefault(); goToShowcase(showcaseSlides.length - 1); }
+      });
+
+      showcaseCarousel.addEventListener('pointerdown', event => {
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+        pointerStart = event.clientX;
+        pointerDelta = 0;
+        dragging = true;
+        showcaseCarousel.classList.add('dragging');
+        showcaseCarousel.setPointerCapture?.(event.pointerId);
+      });
+      showcaseCarousel.addEventListener('pointermove', event => {
+        if (!dragging) return;
+        pointerDelta = event.clientX - pointerStart;
+        const offset = -showcaseIndex * showcaseCarousel.clientWidth + pointerDelta;
+        showcaseTrack.style.transform = `translate3d(${offset}px,0,0)`;
+      });
+      function finishShowcaseDrag(event) {
+        if (!dragging) return;
+        dragging = false;
+        showcaseCarousel.classList.remove('dragging');
+        showcaseTrack.style.transform = '';
+        if (Math.abs(pointerDelta) > Math.min(110, showcaseCarousel.clientWidth * .16)) {
+          goToShowcase(showcaseIndex + (pointerDelta < 0 ? 1 : -1));
+        } else {
+          renderShowcase();
+        }
+        showcaseCarousel.releasePointerCapture?.(event.pointerId);
+      }
+      showcaseCarousel.addEventListener('pointerup', finishShowcaseDrag);
+      showcaseCarousel.addEventListener('pointercancel', finishShowcaseDrag);
+
+      showcaseCarousel.addEventListener('mouseenter', () => {
+        clearTimeout(showcaseTimer);
+        showcaseProgress.style.animationPlayState = 'paused';
+      });
+      showcaseCarousel.addEventListener('mouseleave', () => {
+        showcaseProgress.style.animationPlayState = '';
+        scheduleShowcase();
+      });
+      showcaseCarousel.addEventListener('focusin', () => clearTimeout(showcaseTimer));
+      showcaseCarousel.addEventListener('focusout', event => {
+        if (!showcaseCarousel.contains(event.relatedTarget)) scheduleShowcase();
+      });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) clearTimeout(showcaseTimer); else scheduleShowcase();
+      });
+      reducedMotion.addEventListener?.('change', event => {
+        if (event.matches) {
+          showcasePaused = true;
+          syncShowcasePlayButton();
+          clearTimeout(showcaseTimer);
+          showcaseProgress.classList.remove('running');
+        }
+      });
+
+      syncShowcasePlayButton();
+      renderShowcase();
+      scheduleShowcase();
+    }
 
 
     // Day / night mode with persistent preference and a progressive view transition.
