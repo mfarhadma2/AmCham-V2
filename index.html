@@ -20,7 +20,7 @@
     })();
   </script>
 <meta content="A modern homepage redesign concept for the American Chamber of Commerce of the Philippines, Version 5 with the official AmCham promotional image carousel." name="description"/>
-<title>AmCham Philippines — Business Moves Forward | Version 5</title>
+<title>Version 6 Working — AmCham Philippines — Business Moves Forward | Version 5</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;1,600&amp;display=swap" rel="stylesheet"/>
@@ -224,7 +224,7 @@
     .aurora { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .26; pointer-events: none; }
     .aurora.one { width: 460px; height: 460px; left: -200px; top: 160px; background: #1d68ce; }
     .aurora.two { width: 420px; height: 420px; right: 5%; bottom: -120px; background: #ea2442; }
-    .hero-layout { position: relative; z-index: 2; display: grid; grid-template-columns: 1.08fr .78fr; gap: 90px; align-items: center; }
+    .hero-layout { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(520px, .95fr); gap: 64px; align-items: center; }
     .hero-kicker {
       display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px 8px 9px;
       border: 1px solid rgba(255,255,255,.18); border-radius: 999px; background: rgba(255,255,255,.07); backdrop-filter: blur(12px);
@@ -243,36 +243,98 @@
     .proof-label { color: #a9bbd6; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 
     .hero-console {
-      position: relative; padding: 20px; border: 1px solid rgba(255,255,255,.16); border-radius: 30px;
+      position: relative; width: min(100%, 700px); justify-self: end; padding: 16px; border: 1px solid rgba(255,255,255,.16); border-radius: 30px;
       background: linear-gradient(145deg, rgba(255,255,255,.13), rgba(255,255,255,.05)); backdrop-filter: blur(22px) saturate(1.15);
-      box-shadow: 0 40px 100px rgba(0,0,0,.32); transform: perspective(1200px) rotateY(-3deg) rotateX(2deg);
+      box-shadow: 0 40px 100px rgba(0,0,0,.32); transform: perspective(1200px) rotateY(-1.4deg) rotateX(1deg);
     }
-    .console-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 3px 2px 17px; }
-    .console-title small { display: block; color: #9eb2d0; font-size: 10px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
-    .console-title strong { display: block; margin-top: 5px; font-size: 17px; }
-    .live-pill { display: inline-flex; align-items: center; gap: 7px; padding: 8px 10px; border-radius: 999px; background: rgba(79,211,156,.12); color: #85ebc1; font-size: 10px; font-weight: 800; text-transform: uppercase; }
-    .live-pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #4fd39c; box-shadow: 0 0 0 5px rgba(79,211,156,.1); }
-    .featured-event {
-      min-height: 340px; position: relative; overflow: hidden; border-radius: 22px;
-      background: #102b54;
+    .console-top { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 3px 4px 14px; }
+    .console-title { display: flex; align-items: center; gap: 11px; min-width: 0; }
+    .console-title-icon {
+      width: 38px; height: 38px; flex: 0 0 auto; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.14);
+      border-radius: 12px; color: #ff7586; background: rgba(239,51,73,.12);
     }
-    .featured-event img { width: 100%; height: 100%; min-height: 340px; object-fit: cover; }
-    .featured-event::after { content: ""; position: absolute; inset: 35% 0 0; background: linear-gradient(transparent, rgba(4,18,36,.95)); }
-    .featured-event-copy { position: absolute; z-index: 2; left: 22px; right: 22px; bottom: 20px; }
-    .event-label { display: inline-flex; padding: 6px 9px; border-radius: 999px; background: var(--red-500); font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .featured-event h2 { margin: 11px 0 8px; font-size: 22px; line-height: 1.15; }
-    .featured-event-meta { display: flex; align-items: center; gap: 14px; color: #c8d6e9; font-size: 11px; font-weight: 700; }
-    .console-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
-    .mini-tile { padding: 14px; border-radius: 16px; background: rgba(255,255,255,.08); }
-    .mini-tile span { display: block; color: #9fb2cf; font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .mini-tile strong { display: block; margin-top: 5px; font-size: 13px; }
-    .floating-chip {
-      position: absolute; right: -40px; top: 84px; padding: 12px 15px; border-radius: 16px;
-      background: white; color: var(--navy-950); box-shadow: var(--shadow-lg); animation: float 5s ease-in-out infinite;
+    .console-title-copy { min-width: 0; }
+    .console-title small { display: block; color: #9eb2d0; font-size: 9px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+    .console-title strong { display: block; margin-top: 4px; overflow: hidden; color: #f7faff; font-size: 16px; letter-spacing: -.01em; text-overflow: ellipsis; white-space: nowrap; }
+    .console-calendar-link {
+      min-height: 38px; padding: 0 12px; flex: 0 0 auto; display: inline-flex; align-items: center; gap: 7px; border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px; color: #dbe7f7; background: rgba(255,255,255,.06); font-size: 10px; font-weight: 800; letter-spacing: .04em;
+      transition: transform .2s ease, color .2s ease, border-color .2s ease, background .2s ease;
     }
-    .floating-chip small { display: block; color: var(--muted); font-size: 9px; font-weight: 800; text-transform: uppercase; }
-    .floating-chip strong { display: block; margin-top: 3px; font-size: 13px; }
-    @keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
+    .console-calendar-link:hover { transform: translateY(-2px); color: white; border-color: rgba(255,255,255,.32); background: rgba(255,255,255,.11); }
+    .hero-event-slider {
+      position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.12); border-radius: 22px;
+      background: #081a31; box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+    }
+    .hero-event-viewport { position: relative; aspect-ratio: 2 / 1; overflow: hidden; background: #102b54; touch-action: pan-y; }
+    .hero-event-slides { position: absolute; inset: 0; }
+    .hero-event-slide {
+      position: absolute; inset: 0; z-index: 0; display: block; opacity: 0; pointer-events: none;
+      transform: scale(1.025); transition: opacity .55s ease, transform 1.1s cubic-bezier(.2,.75,.2,1);
+    }
+    .hero-event-slide.active { z-index: 1; opacity: 1; pointer-events: auto; transform: scale(1); cursor: pointer; }
+    .hero-event-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-event-viewport::after {
+      content: ""; position: absolute; z-index: 2; inset: auto 0 0; height: 36%; pointer-events: none;
+      background: linear-gradient(transparent, rgba(4,18,36,.52));
+    }
+    .hero-event-arrows { position: absolute; z-index: 4; right: 13px; bottom: 13px; display: flex; gap: 7px; }
+    .hero-event-arrow {
+      width: 44px; height: 44px; padding: 0; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.26);
+      border-radius: 50%; color: white; background: rgba(4,18,36,.7); backdrop-filter: blur(12px); cursor: pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .hero-event-arrow:hover { transform: translateY(-2px); background: var(--red-500); border-color: var(--red-500); }
+    .hero-event-footer {
+      min-height: 78px; padding: 13px 15px 14px; display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 18px; align-items: center;
+      background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+    }
+    .hero-event-caption { min-width: 0; }
+    .event-label { display: inline-flex; padding: 5px 8px; border-radius: 999px; background: var(--red-500); font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .hero-event-caption strong {
+      display: block; margin-top: 7px; overflow: hidden; color: #f6f9ff; font-size: 13px; line-height: 1.28;
+      text-overflow: ellipsis; white-space: nowrap;
+    }
+    .hero-event-status { display: grid; justify-items: end; gap: 9px; }
+    .hero-event-count { color: #9eb2d0; font-size: 10px; font-weight: 800; letter-spacing: .08em; }
+    .hero-event-count b { color: white; font-size: 12px; }
+    .hero-event-dots { display: flex; align-items: center; justify-content: flex-end; gap: 5px; }
+    .hero-event-dot {
+      width: 8px; height: 8px; padding: 0; border: 0; border-radius: 999px; background: rgba(255,255,255,.34); cursor: pointer;
+      transition: width .25s ease, background .25s ease, transform .25s ease;
+    }
+    .hero-event-dot:hover { transform: scale(1.25); background: rgba(255,255,255,.7); }
+    .hero-event-dot.active { width: 22px; background: var(--red-500); }
+    .hero-event-slider,
+    .hero-event-viewport,
+    .hero-event-arrows,
+    .hero-event-arrow,
+    .hero-event-footer,
+    .hero-event-dots,
+    .hero-event-dot { pointer-events: auto; }
+    .hero-event-arrows { isolation: isolate; }
+    .hero-event-arrow {
+      position: relative; z-index: 8; touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+    }
+    .hero-event-dot { position: relative; z-index: 3; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+    .hero-event-slide img { pointer-events: none; user-select: none; -webkit-user-drag: none; }
+    .hero-event-slider.dragging, .hero-event-slider.dragging * { cursor: grabbing !important; }
+    .hero-event-slider.dragging .hero-event-slide { transition: none; }
+    .hero-event-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    .console-bottom { display: grid; grid-template-columns: 1.08fr .92fr; gap: 10px; margin-top: 10px; }
+    .event-console-action {
+      min-height: 64px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      border: 1px solid rgba(255,255,255,.13); border-radius: 17px; transition: transform .22s ease, border-color .22s ease, background .22s ease;
+    }
+    .event-console-action:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.28); }
+    .event-console-action span { display: block; color: #9fb2cf; font-size: 8px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .event-console-action strong { display: block; margin-top: 5px; color: white; font-size: 12px; line-height: 1.25; }
+    .event-console-action svg { flex: 0 0 auto; }
+    .event-console-action.primary { background: linear-gradient(135deg, var(--red-500), #bd1730); box-shadow: 0 12px 26px rgba(239,51,73,.2); }
+    .event-console-action.primary span { color: rgba(255,255,255,.7); }
+    .event-console-action.primary:hover { border-color: rgba(255,255,255,.38); background: linear-gradient(135deg, #f23b55, #c61932); }
+    .event-console-action.secondary { background: rgba(255,255,255,.075); }
 
     .trust-strip { position: relative; z-index: 4; margin-top: -34px; }
     .trust-panel {
@@ -523,7 +585,7 @@
     @media (max-width: 1100px) {
       .main-nav, .login-link, .header-contact, .nav-actions > .btn { display: none; }
       .mobile-toggle { display: grid; place-items: center; }
-      .hero-layout { grid-template-columns: 1fr .75fr; gap: 45px; }
+      .hero-layout { grid-template-columns: minmax(0,1fr) minmax(440px,.9fr); gap: 38px; }
       .floating-chip { display: none; }
       .journey-grid, .impact-grid { grid-template-columns: repeat(2, 1fr); }
       .membership-panel { grid-template-columns: 1fr 1fr; padding: 48px; gap: 36px; }
@@ -537,7 +599,7 @@
       .section-head { grid-template-columns: 1fr; gap: 24px; }
       .hero { min-height: auto; padding-top: 165px; }
       .hero-layout { grid-template-columns: 1fr; }
-      .hero-console { max-width: 580px; transform: none; }
+      .hero-console { width: min(100%, 700px); max-width: 700px; justify-self: start; transform: none; }
       .trust-panel { grid-template-columns: 1fr 1fr; }
       .trust-intro { grid-column: 1 / -1; }
       .trust-stat:nth-child(2) { border-left: 0; }
@@ -567,8 +629,14 @@
       .hero-actions .btn { width: 100%; }
       .hero-proof { gap: 24px; }
       .hero-console { padding: 12px; border-radius: 22px; }
-      .featured-event, .featured-event img { min-height: 290px; }
+      .hero-event-footer { grid-template-columns: 1fr; gap: 10px; }
+      .hero-event-status { justify-items: start; }
+      .hero-event-dots { justify-content: flex-start; }
+      .hero-event-caption strong { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+      .hero-event-arrow { width: 36px; height: 36px; }
       .console-bottom { grid-template-columns: 1fr; }
+      .console-calendar-link { padding: 0 10px; font-size: 9px; }
+      .console-title strong { font-size: 14px; }
       .trust-panel { grid-template-columns: 1fr; }
       .trust-intro, .trust-stat, .trust-stat:last-child { grid-column: auto; border-left: 0; border-top: 1px solid var(--line); }
       .trust-intro { border-top: 0; }
@@ -1199,22 +1267,53 @@
 </div>
 <div class="hero-console reveal" style="transition-delay:.12s">
 <div class="console-top">
-<div class="console-title"><small>What's happening</small><strong>Next at AmCham</strong></div>
-<span class="live-pill">Updated</span>
+<div class="console-title">
+<span aria-hidden="true" class="console-title-icon"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" width="18"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg></span>
+<div class="console-title-copy"><small>Official event highlights</small><strong>Featured AmCham events</strong></div>
 </div>
-<a class="featured-event" href="https://amchamphilippines.com/events/" rel="noreferrer" target="_blank">
-<img alt="C-Suite North Side event graphic" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-25-26-C-Suite-North-Side-Bringing-Business-Closer-to-You-BSB-PABS.jpg"/>
-<div class="featured-event-copy">
-<span class="event-label">Featured event</span>
-<h2>C-Suite North Side: Bringing Business Closer to You</h2>
-<div class="featured-event-meta"><span>June 25, 2026</span><span>07:30–09:00</span></div>
+<a class="console-calendar-link" href="https://amchamphilippines.com/calendar-events/" rel="noreferrer" target="_blank">Event calendar <span aria-hidden="true">↗</span></a>
 </div>
-</a>
+<div aria-label="Featured AmCham events" aria-roledescription="carousel" class="hero-event-slider" id="heroEventSlider" role="region">
+<div class="hero-event-viewport" id="heroEventViewport">
+<div class="hero-event-slides">
+<a aria-hidden="false" class="hero-event-slide active" data-title="Standard Minimum Wage Policy Proposals and Implications for the Manufacturing Sector" href="https://amchamphilippines.glueup.com/event/standard-minimum-wage-policy-proposals-and-implications-for-the-manufacturing-sector-181561/" rel="noreferrer" target="_blank"><img alt="Standard Minimum Wage Policy Proposals and Implications for the Manufacturing Sector" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-18-26-Standard-Minimum-Wage-Policy-Proposals-and-Impications-for-the-Manufacturing-Sector-CIR-MANU.jpg"/></a>
+<a aria-hidden="true" class="hero-event-slide" data-title="The Midyear Connect: Clark International Mixer" href="https://amchamphilippines.glueup.com/event/north-luzon-the-midyear-connect-clark-international-mixer-182179/" rel="noreferrer" tabindex="-1" target="_blank"><img alt="The Midyear Connect Clark International Mixer" loading="lazy" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-18-26-The-Midyear-Connect-Clark-International-Mixer-CHAPTERS-NL.jpg"/></a>
+<a aria-hidden="true" class="hero-event-slide" data-title="Cultivating Inclusive Workplaces: Beyond Compliance" href="https://amchamphilippines.glueup.com/event/cultivating-inclusive-workplaces-beyond-compliance-184492/" rel="noreferrer" tabindex="-1" target="_blank"><img alt="Cultivating Inclusive Workplaces Beyond Compliance" loading="lazy" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-19-26-Cultivating-Inclusive-Workplaces-Beyond-Comliance-CIR-HCR.jpg"/></a>
+<a aria-hidden="true" class="hero-event-slide" data-title="The Invisible Expert Problem: Why Your Expertise Isn't Growing Your Business" href="https://amchamphilippines.glueup.com/event/the-invisible-expert-problem-why-your-expertise-isnt-growing-your-business-182755/" rel="noreferrer" tabindex="-1" target="_blank"><img alt="The Invisible Expert Problem Why Your Expertise Isn't Growing Your Business" loading="lazy" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-19-26-The-Invisible-Exper-Problem-Why-Your-Expertise-Isnt-Growing-Your-Business-CIR-CI.jpg"/></a>
+<a aria-hidden="true" class="hero-event-slide" data-title="Credibility vs. Virality: Journalism in a New Media Landscape" href="https://amchamphilippines.glueup.com/event/credibility-vs-virality-journalism-in-a-new-media-landscape-183712/" rel="noreferrer" tabindex="-1" target="_blank"><img alt="Credibility vs Virality Journalism in a New Media Landscape" loading="lazy" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-23-26-Credebility-vs.-Virality-Journalism-in-a-New-Media-Landscape-CIR-YP.jpg"/></a>
+<a aria-hidden="true" class="hero-event-slide" data-title="Addressing Burnout, Psychosocial, and Mental Health Issues in the Workplace" href="https://amchamphilippines.glueup.com/event/addressing-burnout-psychosocial-and-mental-health-issues-in-the-workplace-183878/" rel="noreferrer" tabindex="-1" target="_blank"><img alt="Addressing Burnout Psychosocial and Mental Health Issues in the Workplace" loading="lazy" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-24-26-Addressing-Burnout-Psychosocial-and-Mental-Health-Issues-in-the-Workplace-CIR-HCR.jpg"/></a>
+<a aria-hidden="true" class="hero-event-slide" data-title="C-Suite North Side: Bringing Business Closer to You" href="https://amchamphilippines.glueup.com/event/c-suite-north-side-183597/" rel="noreferrer" tabindex="-1" target="_blank"><img alt="C-Suite North Side Bringing Business Closer to You" loading="lazy" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-25-26-C-Suite-North-Side-Bringing-Business-Closer-to-You-BSB-PABS.jpg"/></a>
+<a aria-hidden="true" class="hero-event-slide" data-title="June Legislative Committee Meeting" href="https://amchamphilippines.glueup.com/event/june-legislative-committee-meeting-185011/" rel="noreferrer" tabindex="-1" target="_blank"><img alt="June Legislative Committee Meeting" loading="lazy" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-25-26-June-Legislative-Committee-Meeting-AmCham-x-TAPP.jpg"/></a>
+<a aria-hidden="true" class="hero-event-slide" data-title="21st Joint Foreign Chambers Networking Night" href="https://amchamphilippines.glueup.com/event/21st-jfc-networking-night-181881/" rel="noreferrer" tabindex="-1" target="_blank"><img alt="21st Joint Foreign Chambers Networking Night" loading="lazy" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-25-26-21ST-Joint-Foreign-Chambers-Networking-Night-CIR-SE.jpg"/></a>
+</div>
+<div aria-label="Event slider controls" class="hero-event-arrows">
+<button aria-label="Previous featured event" class="hero-event-arrow" id="heroEventPrev" type="button"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><path d="m15 18-6-6 6-6"></path></svg></button>
+<button aria-label="Next featured event" class="hero-event-arrow" id="heroEventNext" type="button"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="16"><path d="m9 18 6-6-6-6"></path></svg></button>
+</div>
+</div>
+<div class="hero-event-footer">
+<div class="hero-event-caption"><span class="event-label">Featured event</span><strong id="heroEventCaption">Standard Minimum Wage Policy Proposals and Implications for the Manufacturing Sector</strong></div>
+<div class="hero-event-status">
+<div class="hero-event-count"><b id="heroEventCurrent">01</b> / 09</div>
+<div aria-label="Choose a featured event" class="hero-event-dots" id="heroEventDots" role="tablist">
+<button aria-label="Show event 1" aria-selected="true" class="hero-event-dot active" role="tab" type="button"></button>
+<button aria-label="Show event 2" aria-selected="false" class="hero-event-dot" role="tab" tabindex="-1" type="button"></button>
+<button aria-label="Show event 3" aria-selected="false" class="hero-event-dot" role="tab" tabindex="-1" type="button"></button>
+<button aria-label="Show event 4" aria-selected="false" class="hero-event-dot" role="tab" tabindex="-1" type="button"></button>
+<button aria-label="Show event 5" aria-selected="false" class="hero-event-dot" role="tab" tabindex="-1" type="button"></button>
+<button aria-label="Show event 6" aria-selected="false" class="hero-event-dot" role="tab" tabindex="-1" type="button"></button>
+<button aria-label="Show event 7" aria-selected="false" class="hero-event-dot" role="tab" tabindex="-1" type="button"></button>
+<button aria-label="Show event 8" aria-selected="false" class="hero-event-dot" role="tab" tabindex="-1" type="button"></button>
+<button aria-label="Show event 9" aria-selected="false" class="hero-event-dot" role="tab" tabindex="-1" type="button"></button>
+</div>
+</div>
+</div>
+<span aria-live="polite" class="hero-event-live" id="heroEventLive"></span>
+</div>
 <div class="console-bottom">
-<a class="mini-tile" href="#committees"><span>Engage</span><strong>Explore 20 committees →</strong></a>
-<a class="mini-tile" href="#publications"><span>Insights</span><strong>Read the latest journal →</strong></a>
+<a class="event-console-action primary" href="https://amchamphilippines.glueup.com/event/standard-minimum-wage-policy-proposals-and-implications-for-the-manufacturing-sector-181561/" id="heroEventOpen" rel="noreferrer" target="_blank"><span>Selected event</span><strong>View event details</strong><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+<a class="event-console-action secondary" href="https://amchamphilippines.com/events/" rel="noreferrer" target="_blank"><span>AmCham calendar</span><strong>Browse all events</strong><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
 </div>
-<div class="floating-chip"><small>Member advantage</small><strong>Network. Influence. Grow.</strong></div>
 </div>
 </div>
 </section>
@@ -1657,6 +1756,196 @@
       document.querySelectorAll('.event-card').forEach(card => { card.hidden = filter !== 'all' && card.dataset.category !== filter; });
       eventScroller.scrollTo({ left: 0, behavior: 'smooth' });
     }));
+
+
+    // Version 6 hero event carousel — self-contained, resilient runtime.
+    (() => {
+      const slider = document.getElementById('heroEventSlider');
+      if (!slider || slider.dataset.carouselReady === 'true') return;
+      slider.dataset.carouselReady = 'true';
+      slider.setAttribute('tabindex', '0');
+
+      const viewport = document.getElementById('heroEventViewport');
+      const slides = Array.from(slider.querySelectorAll('.hero-event-slide'));
+      const dots = Array.from(slider.querySelectorAll('.hero-event-dot'));
+      const caption = document.getElementById('heroEventCaption');
+      const detailsLink = document.getElementById('heroEventOpen');
+      const current = document.getElementById('heroEventCurrent');
+      const live = document.getElementById('heroEventLive');
+      const previous = document.getElementById('heroEventPrev');
+      const next = document.getElementById('heroEventNext');
+
+      if (!viewport || slides.length < 2 || !previous || !next) return;
+
+      // Disable the browser's native link/image drag ghost so horizontal
+      // gestures are handled only by this carousel.
+      slides.forEach(slide => {
+        slide.draggable = false;
+        slide.addEventListener('dragstart', event => event.preventDefault());
+      });
+
+      let index = Math.max(0, slides.findIndex(slide => slide.classList.contains('active')));
+      let autoplayId = 0;
+      let pointerStartX = null;
+      let pointerMoved = false;
+      let activePointerId = null;
+      let pointerCaptured = false;
+      const autoplayDelay = 4200;
+
+      function normalise(value) {
+        return (value + slides.length) % slides.length;
+      }
+
+      function render(value, announce = true) {
+        index = normalise(value);
+
+        slides.forEach((slide, slideIndex) => {
+          const active = slideIndex === index;
+          slide.classList.toggle('active', active);
+          slide.setAttribute('aria-hidden', String(!active));
+          slide.tabIndex = active ? 0 : -1;
+        });
+
+        dots.forEach((dot, dotIndex) => {
+          const active = dotIndex === index;
+          dot.classList.toggle('active', active);
+          dot.setAttribute('aria-selected', String(active));
+          dot.tabIndex = active ? 0 : -1;
+        });
+
+        const selected = slides[index];
+        const title = selected.dataset.title || `Featured AmCham event ${index + 1}`;
+        if (caption) caption.textContent = title;
+        if (current) current.textContent = String(index + 1).padStart(2, '0');
+        if (detailsLink) {
+          detailsLink.href = selected.href;
+          detailsLink.setAttribute('aria-label', `View details for ${title}`);
+        }
+        if (announce && live) {
+          live.textContent = `Featured event ${index + 1} of ${slides.length}: ${title}`;
+        }
+      }
+
+      function stopAutoplay() {
+        if (autoplayId) window.clearInterval(autoplayId);
+        autoplayId = 0;
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        if (document.hidden) return;
+        autoplayId = window.setInterval(() => render(index + 1), autoplayDelay);
+      }
+
+      function select(value) {
+        render(value);
+        startAutoplay();
+      }
+
+      previous.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        select(index - 1);
+      });
+
+      next.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        select(index + 1);
+      });
+
+      dots.forEach((dot, dotIndex) => {
+        dot.addEventListener('click', event => {
+          event.preventDefault();
+          select(dotIndex);
+        });
+      });
+
+      slider.addEventListener('keydown', event => {
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          select(index - 1);
+        } else if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          select(index + 1);
+        } else if (event.key === 'Home') {
+          event.preventDefault();
+          select(0);
+        } else if (event.key === 'End') {
+          event.preventDefault();
+          select(slides.length - 1);
+        }
+      });
+
+      viewport.addEventListener('pointerdown', event => {
+        if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+        // Buttons must receive an ordinary click with no drag interception.
+        if (event.target.closest('.hero-event-arrow, button, [data-slider-control]')) return;
+
+        pointerStartX = event.clientX;
+        pointerMoved = false;
+        activePointerId = event.pointerId;
+        pointerCaptured = false;
+      });
+
+      viewport.addEventListener('pointermove', event => {
+        if (pointerStartX === null || event.pointerId !== activePointerId) return;
+        const distance = event.clientX - pointerStartX;
+        if (Math.abs(distance) <= 8) return;
+
+        pointerMoved = true;
+        slider.classList.add('dragging');
+
+        // Capture only after a real horizontal drag starts. This preserves a
+        // normal click on the active event banner and keeps its link usable.
+        if (!pointerCaptured) {
+          try {
+            viewport.setPointerCapture(event.pointerId);
+            pointerCaptured = true;
+          } catch (_) {}
+        }
+      });
+
+      function resetPointer(event) {
+        if (pointerCaptured && event) {
+          try { viewport.releasePointerCapture(event.pointerId); } catch (_) {}
+        }
+        pointerStartX = null;
+        activePointerId = null;
+        pointerCaptured = false;
+        slider.classList.remove('dragging');
+      }
+
+      function finishPointer(event) {
+        if (pointerStartX === null || event.pointerId !== activePointerId) return;
+        const distance = event.clientX - pointerStartX;
+        const wasDrag = pointerMoved;
+        resetPointer(event);
+        if (wasDrag && Math.abs(distance) >= 45) select(index + (distance < 0 ? 1 : -1));
+      }
+
+      viewport.addEventListener('pointerup', finishPointer);
+      viewport.addEventListener('pointercancel', event => {
+        pointerMoved = false;
+        resetPointer(event);
+      });
+
+      viewport.addEventListener('click', event => {
+        if (!pointerMoved) return;
+        event.preventDefault();
+        event.stopPropagation();
+        pointerMoved = false;
+      }, true);
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stopAutoplay();
+        else startAutoplay();
+      });
+
+      render(index, false);
+      startAutoplay();
+    })();
 
     const featureImage = document.getElementById('committeeFeatureImage');
     const featureTitle = document.getElementById('committeeFeatureTitle');
