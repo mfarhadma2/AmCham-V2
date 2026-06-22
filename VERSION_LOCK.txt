@@ -1,8 +1,11 @@
-AMCHAM PHILIPPINES REDESIGN — VERSION 8 LOCK
+AMCHAM PHILIPPINES REDESIGN — VERSION 9 LOCK
 
 Status: APPROVED AND LOCKED
-Locked on: 2026-06-21
+Lock date: 2026-06-21
 
-Version 8 preserves all approved Version 7 functionality and moves the featured-partner carousel controls into the lower-right slider footer, aligned with the counter, progress indicator, and navigation dots.
+Version 9 preserves all Version 8 features and includes:
+- Larger primary header/navigation logo while preserving the approved navbar layout.
+- Repaired lower featured-partner carousel controls.
+- Previous, Pause/Play, and Next buttons are separated from drag/swipe pointer capture and remain directly clickable.
 
-Do not modify or overwrite this directory. All subsequent development must begin from Version 9 or later.
+Do not modify this locked version. All future changes must begin from Version 10 or later.

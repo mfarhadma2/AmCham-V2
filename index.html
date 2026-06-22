@@ -20,7 +20,7 @@
     })();
   </script>
 <meta content="A modern AmCham Philippines homepage redesign, Version 7 working build with a fully audited light and dark visual system." name="description"/>
-<title>Version 8 Working — AmCham Philippines — Business Moves Forward</title>
+<title>Version 9 Working — AmCham Philippines — Business Moves Forward</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;1,600&amp;display=swap" rel="stylesheet"/>
@@ -143,6 +143,14 @@
     .brand-logo {
       width: 50px; height: 50px; object-fit: contain; border-radius: 8px;
       background: white; padding: 3px; box-shadow: 0 8px 20px rgba(4,18,36,.12);
+    }
+    /* Version 9 — larger primary header logo without changing navbar geometry */
+    .site-header .brand-logo {
+      width: 64px;
+      height: 64px;
+      padding: 1px;
+      border-radius: 10px;
+      box-shadow: 0 10px 26px rgba(4,18,36,.16);
     }
     .brand-copy { display: grid; line-height: 1; }
     .brand-copy strong { font-size: 14px; letter-spacing: .03em; }
@@ -624,6 +632,7 @@
       .site-header { height: 68px; }
       .brand-copy { display: none; }
       .brand-logo { width: 46px; height: 46px; }
+      .site-header .brand-logo { width: 54px; height: 54px; padding: 1px; border-radius: 9px; }
       .hero { padding: 150px 0 68px; }
       .hero h1 { font-size: clamp(50px, 15vw, 69px); }
       .hero-actions .btn { width: 100%; }
@@ -1131,8 +1140,21 @@
       gap: 16px; align-items: center; border-top: 1px solid rgba(255,255,255,.1); color: white;
       background: rgba(3,13,27,.88); backdrop-filter: blur(16px);
     }
-    .showcase-footer .showcase-controls { padding-left: 2px; }
+    .showcase-footer {
+      isolation: isolate;
+      pointer-events: auto;
+    }
+    .showcase-footer .showcase-controls {
+      position: relative;
+      z-index: 20;
+      padding-left: 2px;
+      pointer-events: auto;
+    }
     .showcase-footer .showcase-control {
+      position: relative;
+      z-index: 21;
+      pointer-events: auto;
+      flex: 0 0 auto;
       width: 40px; height: 40px; color: #fff; background: rgba(255,255,255,.08);
       border-color: rgba(255,255,255,.18); box-shadow: none;
     }
@@ -2478,7 +2500,12 @@
         dot.type = 'button';
         dot.className = 'showcase-dot';
         dot.setAttribute('aria-label', `Go to featured partner ${index + 1}`);
-        dot.addEventListener('click', () => goToShowcase(index, true));
+        dot.addEventListener('pointerdown', event => event.stopPropagation());
+        dot.addEventListener('click', event => {
+          event.preventDefault();
+          event.stopPropagation();
+          goToShowcase(index, true);
+        });
         showcaseDots.appendChild(dot);
       });
       const showcaseDotButtons = [...showcaseDots.children];
@@ -2528,9 +2555,26 @@
         showcasePlay.setAttribute('aria-label', showcasePaused ? 'Play automatic slides' : 'Pause automatic slides');
       }
 
-      showcasePrev.addEventListener('click', () => goToShowcase(showcaseIndex - 1));
-      showcaseNext.addEventListener('click', () => goToShowcase(showcaseIndex + 1));
-      showcasePlay.addEventListener('click', () => {
+      // Footer controls sit inside the draggable carousel. Stop pointer events here
+      // so the carousel cannot capture the pointer before a button receives its click.
+      const showcaseControls = showcasePrev?.closest('.showcase-controls');
+      showcaseControls?.addEventListener('pointerdown', event => event.stopPropagation());
+      showcaseControls?.addEventListener('pointermove', event => event.stopPropagation());
+      showcaseControls?.addEventListener('pointerup', event => event.stopPropagation());
+
+      showcasePrev?.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        goToShowcase(showcaseIndex - 1);
+      });
+      showcaseNext?.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        goToShowcase(showcaseIndex + 1);
+      });
+      showcasePlay?.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
         showcasePaused = !showcasePaused;
         syncShowcasePlayButton();
         restartShowcaseProgress();
@@ -2545,6 +2589,9 @@
       });
 
       showcaseCarousel.addEventListener('pointerdown', event => {
+        // Dragging is only for the banner area. Buttons, dots and links must
+        // retain their native click behaviour and must never trigger capture.
+        if (event.target.closest('button, a, input, select, textarea, [role="button"], .showcase-footer')) return;
         if (event.pointerType === 'mouse' && event.button !== 0) return;
         pointerStart = event.clientX;
         pointerDelta = 0;
