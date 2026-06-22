@@ -1,11 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#071a33" />
-  <meta name="color-scheme" content="light dark" />
-  <script id="themeInit">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#071a33" name="theme-color"/>
+<meta content="light dark" name="color-scheme"/>
+<script id="themeInit">
     (() => {
       try {
         const saved = localStorage.getItem('amcham-theme');
@@ -18,12 +19,12 @@
       }
     })();
   </script>
-  <meta name="description" content="A modern homepage redesign concept for the American Chamber of Commerce of the Philippines." />
-  <title>AmCham Philippines — Business Moves Forward</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
-  <style>
+<meta content="A modern homepage redesign concept for the American Chamber of Commerce of the Philippines." name="description"/>
+<title>AmCham Philippines — Business Moves Forward</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;1,600&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --navy-950: #041224;
       --navy-900: #071a33;
@@ -655,11 +656,6 @@
       transition: color .35s ease, background-color .35s ease, border-color .35s ease, box-shadow .35s ease;
     }
 
-    /* Keep the header's vertical movement animated after the theme transition group above. */
-    .site-header {
-      transition: top .32s var(--ease), color .35s ease, background-color .35s ease, border-color .35s ease, box-shadow .35s ease, backdrop-filter .3s ease;
-    }
-
     :focus-visible { outline-color: var(--focus-ring); }
 
     .scroll-progress {
@@ -942,580 +938,452 @@
 
     ::view-transition-old(root),
     ::view-transition-new(root) { animation-duration: .5s; animation-timing-function: var(--ease); }
-
-
-    /* Minimal right-side section dots restored from the earlier concept.
-       Intentionally no rail, panel or background container. */
-    .page-dock {
-      position: fixed;
-      z-index: 955;
-      right: 18px;
-      top: 50%;
-      display: grid;
-      gap: 12px;
-      transform: translateY(-50%);
-      padding: 0;
-      margin: 0;
-      background: transparent;
-      border: 0;
-    }
-    .page-dock a {
-      width: 11px;
-      height: 11px;
-      position: relative;
-      display: block;
-      border: 1px solid rgba(7,26,51,.32);
-      border-radius: 50%;
-      background: rgba(255,255,255,.86);
-      box-shadow: 0 2px 9px rgba(4,18,36,.26), inset 0 0 0 1px rgba(255,255,255,.35);
-      transition: transform .24s var(--ease), background .24s ease, border-color .24s ease, box-shadow .24s ease;
-    }
-    .page-dock a::after {
-      content: attr(data-label);
-      position: absolute;
-      right: 22px;
-      top: 50%;
-      padding: 6px 9px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      color: var(--text-strong);
-      background: var(--surface-glass);
-      box-shadow: var(--shadow-sm);
-      backdrop-filter: blur(14px) saturate(1.2);
-      font-size: 9px;
-      font-weight: 800;
-      white-space: nowrap;
-      opacity: 0;
-      transform: translate(6px,-50%);
-      pointer-events: none;
-      transition: opacity .18s ease, transform .18s ease;
-    }
-    .page-dock a:hover,
-    .page-dock a:focus-visible {
-      transform: scale(1.18);
-      border-color: rgba(239,51,73,.72);
-    }
-    .page-dock a:hover::after,
-    .page-dock a:focus-visible::after {
-      opacity: 1;
-      transform: translate(0,-50%);
-    }
-    .page-dock a.active {
-      border-color: var(--red-500);
-      background: var(--red-500);
-      box-shadow: 0 0 0 5px rgba(239,51,73,.15), 0 4px 12px rgba(4,18,36,.3);
-      transform: scale(1.18);
-    }
-    html[data-theme="dark"] .page-dock a {
-      border-color: rgba(220,232,251,.48);
-      background: rgba(220,232,251,.82);
-      box-shadow: 0 2px 10px rgba(0,0,0,.38), inset 0 0 0 1px rgba(255,255,255,.32);
-    }
-    html[data-theme="dark"] .page-dock a.active {
-      border-color: #ff6577;
-      background: #ff4c61;
-      box-shadow: 0 0 0 5px rgba(239,51,73,.18), 0 4px 14px rgba(0,0,0,.45);
-    }
-    @media (max-width: 1100px) {
-      .page-dock { display: none; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .page-dock { display: none; }
-    }
-
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
-  <div class="announcement">
-    <div class="container">
-      <div class="announcement-message"><span class="announcement-dot"></span><span>Advancing US–Philippines business since 1902</span></div>
-      <a class="announcement-link" href="https://amchamphilippines.com/events/" target="_blank" rel="noreferrer">Explore upcoming events <span aria-hidden="true">↗</span></a>
-    </div>
-  </div>
-
-  <header class="site-header" id="siteHeader">
-    <div class="container nav-shell">
-      <a class="brand" href="https://amchamphilippines.com/" aria-label="AmCham Philippines home">
-        <img class="brand-logo" src="https://amchamphilippines.com/wp-content/uploads/2022/06/AMCHAM-Logo_Vertical-1.png" alt="AmCham Philippines logo" />
-        <span class="brand-copy"><strong>AmCham Philippines</strong><span>American Chamber of Commerce</span></span>
-      </a>
-
-      <nav class="main-nav" aria-label="Primary navigation">
-        <div class="nav-item">
-          <a class="nav-link" href="https://amchamphilippines.com/who-we-are/" aria-haspopup="true">About
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-          </a>
-          <div class="mega">
-            <div class="mega-grid">
-              <a class="mega-link" href="https://amchamphilippines.com/who-we-are/">
-                <span class="mega-icon"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span>
-                <span><strong>Who We Are</strong><span>Mission, leadership and more than a century of impact.</span></span>
-              </a>
-              <a class="mega-link" href="https://amchamphilippines.com/who-we-are/chapters/">
-                <span class="mega-icon red"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span>
-                <span><strong>Our Chapters</strong><span>Connect across key business regions in the Philippines.</span></span>
-              </a>
-              <a class="mega-link" href="https://amchamphilippines.com/who-we-are/affiliations/">
-                <span class="mega-icon"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 12h8M12 8v8"/><circle cx="12" cy="12" r="9"/></svg></span>
-                <span><strong>Affiliations</strong><span>Explore AmCham's local and international network.</span></span>
-              </a>
-              <a class="mega-link" href="https://amchamphilippines.com/who-we-are/careers-at-amcham/">
-                <span class="mega-icon red"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V4h8v3M3 12h18"/></svg></span>
-                <span><strong>Careers</strong><span>Build meaningful business impact with the Chamber.</span></span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="nav-item">
-          <a class="nav-link" href="https://amchamphilippines.com/membership/" aria-haspopup="true">Membership
-            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
-          </a>
-          <div class="mega">
-            <div class="mega-grid">
-              <a class="mega-link" href="https://amchamphilippines.com/membership/types-and-rates/">
-                <span class="mega-icon red"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21a8 8 0 0 0-16 0M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/></svg></span>
-                <span><strong>Join AmCham</strong><span>Find the right membership type for your organization.</span></span>
-              </a>
-              <a class="mega-link" href="https://amchamphilippines.com/membership/corporate-membership-directory/">
-                <span class="mega-icon"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span>
-                <span><strong>Members' List</strong><span>Discover organizations within the AmCham network.</span></span>
-              </a>
-              <a class="mega-link" href="https://amchamphilippines.com/membership/discount-card/">
-                <span class="mega-icon"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12 12 20l-8-8V4h8l8 8Z"/><circle cx="8.5" cy="8.5" r="1"/></svg></span>
-                <span><strong>Member Benefits</strong><span>Access exclusive opportunities and privileges.</span></span>
-              </a>
-              <a class="mega-link" href="https://amchamphilippines.com/membership/amcham-membership-faqs/">
-                <span class="mega-icon red"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9.8 9a2.5 2.5 0 0 1 4.7 1.2c0 1.8-2.5 2.1-2.5 3.8M12 17h.01"/></svg></span>
-                <span><strong>Membership FAQ</strong><span>Answers to common questions about joining.</span></span>
-              </a>
-            </div>
-            <div class="mega-feature"><span><small>Ready to grow your network?</small><strong>Become an AmCham member today.</strong></span><a class="btn btn-sm btn-light" href="https://amchamphilippines.com/membership/types-and-rates/">View membership</a></div>
-          </div>
-        </div>
-
-        <a class="nav-link" href="https://amchamphilippines.com/events/">Events</a>
-        <a class="nav-link" href="https://amchamphilippines.com/committee/">Committees</a>
-        <a class="nav-link" href="https://amchamphilippines.com/advocacy/">Advocacies</a>
-        <a class="nav-link" href="https://amchamphilippines.com/publication/">Publications</a>
-      </nav>
-
-      <div class="nav-actions">
-        <button class="search-btn" id="openSearch" aria-label="Open site search" title="Search (Ctrl/⌘ + K)">
-          <svg width="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg>
-        </button>
-        <a class="header-contact" href="https://amchamphilippines.com/contact-us/" aria-label="Contact AmCham Philippines">
-          <svg width="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/></svg> Contact
+<a class="skip-link" href="#main">Skip to content</a>
+<div aria-hidden="true" class="scroll-progress" id="scrollProgress"></div>
+<div class="announcement">
+<div class="container">
+<div class="announcement-message"><span class="announcement-dot"></span><span>Advancing US–Philippines business since 1902</span></div>
+<a class="announcement-link" href="https://amchamphilippines.com/events/" rel="noreferrer" target="_blank">Explore upcoming events <span aria-hidden="true">↗</span></a>
+</div>
+</div>
+<header class="site-header" id="siteHeader">
+<div class="container nav-shell">
+<a aria-label="AmCham Philippines home" class="brand" href="https://amchamphilippines.com/">
+<img alt="AmCham Philippines logo" class="brand-logo" src="https://amchamphilippines.com/wp-content/uploads/2022/06/AMCHAM-Logo_Vertical-1.png"/>
+<span class="brand-copy"><strong>AmCham Philippines</strong><span>American Chamber of Commerce</span></span>
+</a>
+<nav aria-label="Primary navigation" class="main-nav">
+<div class="nav-item">
+<a aria-haspopup="true" class="nav-link" href="https://amchamphilippines.com/who-we-are/">About
+            <svg class="chevron" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg>
+</a>
+<div class="mega">
+<div class="mega-grid">
+<a class="mega-link" href="https://amchamphilippines.com/who-we-are/">
+<span class="mega-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"></path></svg></span>
+<span><strong>Who We Are</strong><span>Mission, leadership and more than a century of impact.</span></span>
+</a>
+<a class="mega-link" href="https://amchamphilippines.com/who-we-are/chapters/">
+<span class="mega-icon red"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"></path></svg></span>
+<span><strong>Our Chapters</strong><span>Connect across key business regions in the Philippines.</span></span>
+</a>
+<a class="mega-link" href="https://amchamphilippines.com/who-we-are/affiliations/">
+<span class="mega-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M8 12h8M12 8v8"></path><circle cx="12" cy="12" r="9"></circle></svg></span>
+<span><strong>Affiliations</strong><span>Explore AmCham's local and international network.</span></span>
+</a>
+<a class="mega-link" href="https://amchamphilippines.com/who-we-are/careers-at-amcham/">
+<span class="mega-icon red"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><rect height="13" rx="2" width="18" x="3" y="7"></rect><path d="M8 7V4h8v3M3 12h18"></path></svg></span>
+<span><strong>Careers</strong><span>Build meaningful business impact with the Chamber.</span></span>
+</a>
+</div>
+</div>
+</div>
+<div class="nav-item">
+<a aria-haspopup="true" class="nav-link" href="https://amchamphilippines.com/membership/">Membership
+            <svg class="chevron" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="m6 9 6 6 6-6"></path></svg>
+</a>
+<div class="mega">
+<div class="mega-grid">
+<a class="mega-link" href="https://amchamphilippines.com/membership/types-and-rates/">
+<span class="mega-icon red"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M20 21a8 8 0 0 0-16 0M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"></path></svg></span>
+<span><strong>Join AmCham</strong><span>Find the right membership type for your organization.</span></span>
+</a>
+<a class="mega-link" href="https://amchamphilippines.com/membership/corporate-membership-directory/">
+<span class="mega-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><rect height="18" rx="2" width="16" x="4" y="3"></rect><path d="M8 7h8M8 11h8M8 15h5"></path></svg></span>
+<span><strong>Members' List</strong><span>Discover organizations within the AmCham network.</span></span>
+</a>
+<a class="mega-link" href="https://amchamphilippines.com/membership/discount-card/">
+<span class="mega-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M20 12 12 20l-8-8V4h8l8 8Z"></path><circle cx="8.5" cy="8.5" r="1"></circle></svg></span>
+<span><strong>Member Benefits</strong><span>Access exclusive opportunities and privileges.</span></span>
+</a>
+<a class="mega-link" href="https://amchamphilippines.com/membership/amcham-membership-faqs/">
+<span class="mega-icon red"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="9"></circle><path d="M9.8 9a2.5 2.5 0 0 1 4.7 1.2c0 1.8-2.5 2.1-2.5 3.8M12 17h.01"></path></svg></span>
+<span><strong>Membership FAQ</strong><span>Answers to common questions about joining.</span></span>
+</a>
+</div>
+<div class="mega-feature"><span><small>Ready to grow your network?</small><strong>Become an AmCham member today.</strong></span><a class="btn btn-sm btn-light" href="https://amchamphilippines.com/membership/types-and-rates/">View membership</a></div>
+</div>
+</div>
+<a class="nav-link" href="https://amchamphilippines.com/events/">Events</a>
+<a class="nav-link" href="https://amchamphilippines.com/committee/">Committees</a>
+<a class="nav-link" href="https://amchamphilippines.com/advocacy/">Advocacies</a>
+<a class="nav-link" href="https://amchamphilippines.com/publication/">Publications</a>
+</nav>
+<div class="nav-actions">
+<button aria-label="Open site search" class="search-btn" id="openSearch" title="Search (Ctrl/⌘ + K)">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="19"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg>
+</button>
+<a aria-label="Contact AmCham Philippines" class="header-contact" href="https://amchamphilippines.com/contact-us/">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24" width="15"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"></path></svg> Contact
         </a>
-        <a class="login-link login-icon" href="https://amchamphilippines.glueup.com/account/login" target="_blank" rel="noreferrer" aria-label="Member login" title="Member login">
-          <svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>
-        </a>
-        <a class="btn btn-sm btn-red" href="https://amchamphilippines.com/membership/types-and-rates/">Join AmCham</a>
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Toggle day / night mode">
-          <svg class="sun" width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
-          <svg class="moon" width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.7 8.7 0 1 0 20.5 14.2Z"/></svg>
-        </button>
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Open navigation" aria-expanded="false">
-          <svg id="menuIcon" width="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-        </button>
-      </div>
-    </div>
-  </header>
-
-
-  <nav class="page-dock" id="pageDock" aria-label="On this page">
-    <a href="#top" data-section="top" data-label="Overview" class="active" aria-label="Go to overview"></a>
-    <a href="#events" data-section="events" data-label="Events" aria-label="Go to events"></a>
-    <a href="#membership" data-section="membership" data-label="Membership" aria-label="Go to membership"></a>
-    <a href="#committees" data-section="committees" data-label="Committees" aria-label="Go to committees"></a>
-    <a href="#impact" data-section="impact" data-label="Impact" aria-label="Go to advocacy and services"></a>
-    <a href="#publications" data-section="publications" data-label="Publications" aria-label="Go to publications"></a>
-  </nav>
-
-  <div class="mobile-panel" aria-hidden="true" id="mobilePanel">
-    <nav class="mobile-menu" aria-label="Mobile navigation">
-      <a href="https://amchamphilippines.com/who-we-are/">About</a>
-      <a href="https://amchamphilippines.com/membership/">Membership</a>
-      <a href="https://amchamphilippines.com/events/">Events</a>
-      <a href="https://amchamphilippines.com/committee/">Committees</a>
-      <a href="https://amchamphilippines.com/advocacy/">Advocacies</a>
-      <a href="https://amchamphilippines.com/business-services/">Business & Training Services</a>
-      <a href="https://amchamphilippines.com/publication/">Publications</a>
-      <a href="https://amchamphilippines.com/marketing/">Marketing</a>
-      <a href="https://amchamphilippines.com/contact-us/">Contact</a>
-      <a class="btn btn-red mobile-cta" href="https://amchamphilippines.com/membership/types-and-rates/">Become a member</a>
-    </nav>
-  </div>
-
-  <main id="main">
-    <section class="hero" id="top">
-      <div class="aurora one"></div><div class="aurora two"></div>
-      <div class="container hero-layout">
-        <div class="hero-copy reveal">
-          <div class="hero-kicker"><i>PH</i> American Chamber of Commerce of the Philippines</div>
-          <h1>Where business, policy and <em>opportunity</em> move together.</h1>
-          <p class="hero-lede">A trusted platform for leaders, innovators and institutions shaping a more competitive and prosperous Philippine economy.</p>
-          <div class="hero-actions">
-            <a class="btn btn-red" href="https://amchamphilippines.com/membership/types-and-rates/">Become an AmCham member
-              <svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-            <a class="btn btn-outline" href="#events">Explore upcoming events</a>
-          </div>
-          <div class="hero-proof" aria-label="AmCham highlights">
-            <div class="proof-item"><strong class="proof-number">1902</strong><span class="proof-label">Established</span></div>
-            <div class="proof-item"><strong class="proof-number">20</strong><span class="proof-label">Sector committees</span></div>
-            <div class="proof-item"><strong class="proof-number">4</strong><span class="proof-label">Service pillars</span></div>
-          </div>
-        </div>
-
-        <div class="hero-console reveal" style="transition-delay:.12s">
-          <div class="console-top">
-            <div class="console-title"><small>What's happening</small><strong>Next at AmCham</strong></div>
-            <span class="live-pill">Updated</span>
-          </div>
-          <a class="featured-event" href="https://amchamphilippines.com/events/" target="_blank" rel="noreferrer">
-            <img src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-25-26-C-Suite-North-Side-Bringing-Business-Closer-to-You-BSB-PABS.jpg" alt="C-Suite North Side event graphic" />
-            <div class="featured-event-copy">
-              <span class="event-label">Featured event</span>
-              <h2>C-Suite North Side: Bringing Business Closer to You</h2>
-              <div class="featured-event-meta"><span>June 25, 2026</span><span>07:30–09:00</span></div>
-            </div>
-          </a>
-          <div class="console-bottom">
-            <a class="mini-tile" href="#committees"><span>Engage</span><strong>Explore 20 committees →</strong></a>
-            <a class="mini-tile" href="#publications"><span>Insights</span><strong>Read the latest journal →</strong></a>
-          </div>
-          <div class="floating-chip"><small>Member advantage</small><strong>Network. Influence. Grow.</strong></div>
-        </div>
-      </div>
-    </section>
-
-    <div class="trust-strip">
-      <div class="container trust-panel reveal">
-        <div class="trust-intro"><span>Built for meaningful connections</span><strong>One chamber. A world of business possibilities.</strong></div>
-        <div class="trust-stat"><strong data-count="124">0</strong><span>Years of service</span></div>
-        <div class="trust-stat"><strong>US–PH</strong><span>Trade and investment</span></div>
-        <div class="trust-stat"><strong>Nationwide</strong><span>Chapters and network</span></div>
-      </div>
-    </div>
-
-    <section class="section journeys" id="about">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><span class="eyebrow">What membership unlocks</span><h2 class="section-title">A platform designed to move <em>business forward.</em></h2></div>
-          <div><p class="section-copy">AmCham connects organizations to the conversations, relationships, visibility and intelligence that shape business outcomes.</p><a class="text-link" href="https://amchamphilippines.com/who-we-are/">Discover who we are <svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-        </div>
-
-        <div class="journey-grid">
-          <a class="journey-card reveal spotlight" href="https://amchamphilippines.com/membership/">
-            <div class="journey-index"><span>01</span><span class="journey-icon"><svg width="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20a6 6 0 0 1 12 0M10 20a6 6 0 0 1 12 0"/></svg></span></div>
-            <h3>Build your network</h3><p>Meet decision-makers, peers, investors and industry leaders across sectors and regions.</p><span class="journey-arrow"><svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="journey-card reveal spotlight" style="transition-delay:.06s" href="https://amchamphilippines.com/advocacy/">
-            <div class="journey-index"><span>02</span><span class="journey-icon"><svg width="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 18V6l8-3 8 3v12l-8 3-8-3Z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span></div>
-            <h3>Shape the agenda</h3><p>Add your voice to policy conversations and advocacy initiatives affecting business.</p><span class="journey-arrow"><svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="journey-card reveal spotlight" style="transition-delay:.12s" href="https://amchamphilippines.com/publication/">
-            <div class="journey-index"><span>03</span><span class="journey-icon"><svg width="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span></div>
-            <h3>Access intelligence</h3><p>Stay informed through business journals, briefings, research and sector discussions.</p><span class="journey-arrow"><svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="journey-card reveal spotlight" style="transition-delay:.18s" href="https://amchamphilippines.com/marketing/">
-            <div class="journey-index"><span>04</span><span class="journey-icon"><svg width="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m4 13 4 4L20 5"/><path d="M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10"/></svg></span></div>
-            <h3>Increase visibility</h3><p>Put your brand in front of an influential, highly engaged business community.</p><span class="journey-arrow"><svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section events" id="events">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><span class="eyebrow">Events at AmCham</span><h2 class="section-title">Be in the room where <em>business connects.</em></h2></div>
-          <div><p class="section-copy">From C-suite conversations and policy briefings to training sessions and sector meetings, every event is designed for useful exchange.</p><a class="text-link" style="color:white" href="https://amchamphilippines.com/events/">View full events calendar <svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-        </div>
-
-        <div class="events-toolbar reveal">
-          <div class="event-filters" aria-label="Event filters">
-            <button class="filter-chip active" data-filter="all">All events</button>
-            <button class="filter-chip" data-filter="leadership">Leadership</button>
-            <button class="filter-chip" data-filter="committee">Committee</button>
-            <button class="filter-chip" data-filter="learning">Learning</button>
-          </div>
-          <div class="slider-controls">
-            <button class="round-btn" id="eventPrev" aria-label="Previous events"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg></button>
-            <button class="round-btn" id="eventNext" aria-label="Next events"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
-          </div>
-        </div>
-
-        <div class="event-scroller reveal" id="eventScroller">
-          <a class="event-card" data-category="learning" href="https://amchamphilippines.com/events/" target="_blank" rel="noreferrer">
-            <div class="event-media"><img src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-23-26-Credebility-vs.-Virality-Journalism-in-a-New-Media-Landscape-CIR-YP.jpg" alt="Credibility versus Virality event graphic" /><div class="event-date"><div><b>23</b><span>Jun</span></div></div></div>
-            <div class="event-body"><span class="event-type">Young Professionals</span><h3>Credibility vs. Virality: Journalism in a New Media Landscape</h3><p>Explore trust, speed and responsibility in an era of rapidly evolving media.</p><div class="event-meta"><span>10:00–12:00</span><span class="event-arrow">↗</span></div></div>
-          </a>
-          <a class="event-card" data-category="learning" href="https://amchamphilippines.com/events/" target="_blank" rel="noreferrer">
-            <div class="event-media"><img src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-24-26-Addressing-Burnout-Psychosocial-and-Mental-Health-Issues-in-the-Workplace-CIR-HCR.jpg" alt="Workplace wellbeing event graphic" /><div class="event-date"><div><b>24</b><span>Jun</span></div></div></div>
-            <div class="event-body"><span class="event-type">Human Capital</span><h3>Addressing Burnout and Psychosocial Issues in the Workplace</h3><p>Practical insights for healthier, more resilient and more productive teams.</p><div class="event-meta"><span>10:00–12:00</span><span class="event-arrow">↗</span></div></div>
-          </a>
-          <a class="event-card" data-category="leadership" href="https://amchamphilippines.com/events/" target="_blank" rel="noreferrer">
-            <div class="event-media"><img src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-25-26-C-Suite-North-Side-Bringing-Business-Closer-to-You-BSB-PABS.jpg" alt="C-Suite North Side event graphic" /><div class="event-date"><div><b>25</b><span>Jun</span></div></div></div>
-            <div class="event-body"><span class="event-type">C-Suite Series</span><h3>C-Suite North Side: Bringing Business Closer to You</h3><p>A focused executive breakfast created to expand high-value connections.</p><div class="event-meta"><span>07:30–09:00</span><span class="event-arrow">↗</span></div></div>
-          </a>
-          <a class="event-card" data-category="committee" href="https://amchamphilippines.com/events/" target="_blank" rel="noreferrer">
-            <div class="event-media"><img src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-25-26-June-Legislative-Committee-Meeting-AmCham-x-TAPP.jpg" alt="Legislative Committee meeting graphic" /><div class="event-date"><div><b>25</b><span>Jun</span></div></div></div>
-            <div class="event-body"><span class="event-type">Legislative Committee</span><h3>June Legislative Committee Meeting</h3><p>Discuss the latest policy developments affecting competitiveness and investment.</p><div class="event-meta"><span>10:00–12:00</span><span class="event-arrow">↗</span></div></div>
-          </a>
-          <a class="event-card" data-category="committee" href="https://amchamphilippines.com/events/" target="_blank" rel="noreferrer">
-            <div class="event-media"><img src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-18-26-Standard-Minimum-Wage-Policy-Proposals-and-Impications-for-the-Manufacturing-Sector-CIR-MANU.jpg" alt="Manufacturing policy event graphic" /><div class="event-date"><div><b>24</b><span>Jun</span></div></div></div>
-            <div class="event-body"><span class="event-type">Manufacturing</span><h3>Wage Growth and Competitiveness: Manufacturing Implications</h3><p>Examine the connection between wage policy, jobs, planning and investment.</p><div class="event-meta"><span>13:00–15:00</span><span class="event-arrow">↗</span></div></div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section membership" id="membership">
-      <div class="container">
-        <div class="membership-panel reveal">
-          <div class="membership-copy">
-            <span class="eyebrow">Membership</span>
-            <h2>Your seat at the table starts <em>here.</em></h2>
-            <p>Join a thriving business community built around four pillars: advocacy, information, networking and marketing opportunities.</p>
-            <div class="membership-actions"><a class="btn btn-red" href="https://amchamphilippines.com/membership/types-and-rates/">Explore membership types</a><a class="btn btn-outline" href="https://amchamphilippines.com/membership/amcham-membership-faqs/">Read membership FAQ</a></div>
-          </div>
-          <div class="benefit-stack">
-            <a class="benefit-card" href="https://amchamphilippines.com/advocacy/"><span class="benefit-icon"><svg width="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 20V10l7-6 7 6v10M9 20v-5h6v5"/></svg></span><span><strong>Advocacy</strong><span>Contribute to a credible collective voice on business issues.</span></span><span class="benefit-number">01</span></a>
-            <a class="benefit-card" href="https://amchamphilippines.com/publication/"><span class="benefit-icon"><svg width="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4zM8 9h8M8 13h8M8 17h5"/></svg></span><span><strong>Information</strong><span>Gain access to insights, briefings, publications and updates.</span></span><span class="benefit-number">02</span></a>
-            <a class="benefit-card" href="https://amchamphilippines.com/events/"><span class="benefit-icon"><svg width="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="8" r="3"/><path d="M2 20a6 6 0 0 1 12 0M10 20a6 6 0 0 1 12 0"/></svg></span><span><strong>Networking</strong><span>Create relevant relationships through curated interactions.</span></span><span class="benefit-number">03</span></a>
-            <a class="benefit-card" href="https://amchamphilippines.com/marketing/"><span class="benefit-icon"><svg width="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M12 4v16"/><circle cx="12" cy="12" r="9"/></svg></span><span><strong>Marketing opportunities</strong><span>Build visibility within an influential business audience.</span></span><span class="benefit-number">04</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section committees" id="committees">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><span class="eyebrow">20 sector committees</span><h2 class="section-title">Deep expertise. Shared interests. <em>Collective influence.</em></h2></div>
-          <div><p class="section-copy">AmCham committees bring members together around the issues, sectors and opportunities that matter most to the Philippine business ecosystem.</p><a class="text-link" href="https://amchamphilippines.com/committee/">View all committees <svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-        </div>
-
-        <div class="committee-shell reveal">
-          <article class="committee-feature" id="committeeFeature">
-            <img id="committeeFeatureImage" src="https://amchamphilippines.com/wp-content/uploads/2022/06/ICT.png" alt="Information and Communications Technology committee icon" />
-            <h3 id="committeeFeatureTitle">Information & Communications Technology</h3>
-            <p id="committeeFeatureText">A liaison between the business community and the Philippine and U.S. governments on telecommunications and information technology policy.</p>
-            <a class="text-link" href="https://amchamphilippines.com/committee/">Explore this committee <svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </article>
-
-          <div class="committee-list" role="list">
-            <button class="committee-item active" data-title="Information & Communications Technology" data-image="https://amchamphilippines.com/wp-content/uploads/2022/06/ICT.png" data-text="A liaison between the business community and the Philippine and U.S. governments on telecommunications and information technology policy."><img src="https://amchamphilippines.com/wp-content/uploads/2022/06/ICT.png" alt="" /><span><strong>Information & Communications Technology</strong><span>Digital policy, innovation and industry exchange</span></span><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <button class="committee-item" data-title="Trade & Investment" data-image="https://amchamphilippines.com/wp-content/uploads/2022/06/TRADE.png" data-text="Promotes stronger United States–Philippines economic relations through dialogue, information exchange and investment-focused forums."><img src="https://amchamphilippines.com/wp-content/uploads/2022/06/TRADE.png" alt="" /><span><strong>Trade & Investment</strong><span>Cross-border opportunity and economic relations</span></span><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <button class="committee-item" data-title="Sustainability" data-image="https://amchamphilippines.com/wp-content/uploads/2022/06/SUS.png" data-text="Champions member efforts that support a more resilient, responsible and sustainable future for business and communities."><img src="https://amchamphilippines.com/wp-content/uploads/2022/06/SUS.png" alt="" /><span><strong>Sustainability</strong><span>Responsible growth and future-ready business</span></span><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <button class="committee-item" data-title="Professional Women of AmCham" data-image="https://amchamphilippines.com/wp-content/uploads/2022/06/PWOA.png" data-text="Promotes professional women's leadership, development and visibility while advancing gender equality in business."><img src="https://amchamphilippines.com/wp-content/uploads/2022/06/PWOA.png" alt="" /><span><strong>Professional Women of AmCham</strong><span>Leadership, professional growth and visibility</span></span><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <button class="committee-item" data-title="Young Professionals of AmCham" data-image="https://amchamphilippines.com/wp-content/uploads/2022/06/YP.png" data-text="Engages and develops the next generation of business leaders through access to knowledge, networks and senior industry perspectives."><img src="https://amchamphilippines.com/wp-content/uploads/2022/06/YP.png" alt="" /><span><strong>Young Professionals of AmCham</strong><span>Next-generation leadership and connection</span></span><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <button class="committee-item" data-title="Healthcare & Wellness" data-image="https://amchamphilippines.com/wp-content/uploads/2022/06/HCW.png" data-text="Supports health and wellness initiatives across public and private sectors while sharing relevant medical information with members."><img src="https://amchamphilippines.com/wp-content/uploads/2022/06/HCW.png" alt="" /><span><strong>Healthcare & Wellness</strong><span>Health policy, awareness and nation-building</span></span><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <div class="committee-more"><a class="btn" href="https://amchamphilippines.com/committee/">Browse all 20 committees</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section impact" id="impact">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><span class="eyebrow">How AmCham creates value</span><h2 class="section-title">From collective voice to practical <em>business support.</em></h2></div>
-          <p class="section-copy">The Chamber connects influence, market access, capability-building and brand visibility in one integrated member ecosystem.</p>
-        </div>
-        <div class="impact-grid">
-          <a class="impact-card reveal" href="https://amchamphilippines.com/advocacy/"><span class="impact-number">01 / Advocacy</span><span class="impact-icon"><svg width="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5l8-3 8 3v14l-8 3-8-3Z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><h3>Strengthen the business climate</h3><p>Bring member priorities into consultations, meetings, position papers and reform initiatives.</p></a>
-          <a class="impact-card reveal" style="transition-delay:.06s" href="https://amchamphilippines.com/marketing/"><span class="impact-number">02 / Marketing</span><span class="impact-icon"><svg width="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11h18M5 7h14M7 15h10M9 19h6"/></svg></span><h3>Reach a high-value audience</h3><p>Position your brand through B2B and B2C marketing channels within the AmCham community.</p></a>
-          <a class="impact-card reveal" style="transition-delay:.12s" href="https://amchamphilippines.com/business-services/"><span class="impact-number">03 / Business Services</span><span class="impact-icon"><svg width="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M8 6V3h8v3M3 12h18"/></svg></span><h3>Navigate opportunities with confidence</h3><p>Access business consultancy, networking, promotion and market intelligence support.</p></a>
-          <a class="impact-card reveal" style="transition-delay:.18s" href="https://amchamphilippines.com/business-services/training-services/"><span class="impact-number">04 / Training</span><span class="impact-icon"><svg width="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 10 9-5 9 5-9 5-9-5Z"/><path d="M7 12v5c3 2 7 2 10 0v-5"/></svg></span><h3>Build globally competitive teams</h3><p>Develop practical skills across marketing, finance, human resources and other business functions.</p></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section publications" id="publications">
-      <div class="container">
-        <div class="section-head reveal">
-          <div><span class="eyebrow">Ideas that move industries</span><h2 class="section-title">Read what business leaders are <em>thinking next.</em></h2></div>
-          <div><p class="section-copy">Discover timely perspectives on workforce transformation, technology, sustainability, cybersecurity and the future of Philippine business.</p><a class="text-link" href="https://amchamphilippines.com/publications-hub/">Visit publications hub <svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-        </div>
-
-        <div class="publication-layout reveal">
-          <article class="publication-main">
-            <div class="publication-copy"><span class="eyebrow">Latest business journal</span><h3>Navigating the Next Era of Human Capital</h3><p>Timely conversations on workforce transformation, AI integration, platform economies, sustainability, cybersecurity and the future of work.</p><a class="btn btn-red" href="https://amchamphilippines.com/publication/">Explore the latest issue</a></div>
-            <div class="cover-wrap"><img src="https://amchamphilippines.com/wp-content/uploads/2026/05/ABJ-May-2026-Issue-cover.jpg" alt="May 2026 AmCham Business Journal cover" /></div>
-          </article>
-          <div class="publication-side">
-            <article class="publication-card red"><span class="card-icon">↗</span><h3>The Future Starts Here</h3><p>Perspectives from emerging professionals and the leaders shaping what comes next.</p></article>
-            <article class="publication-card"><span class="card-icon">↗</span><h3>Member Directory</h3><p>Turn membership into meaningful business connections through the latest directory.</p></article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="partners" aria-label="Corporate partners">
-      <div class="container partners-intro reveal"><div><span class="eyebrow">Trusted across industries</span><h2>Corporate partners</h2></div><p>AmCham brings together respected local and global organizations committed to stronger business and economic development.</p></div>
-      <div class="logo-marquee" aria-hidden="true">
-        <div class="logo-set">
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2026/04/AWS_logo_RGB_1c_Gray850.png" alt="AWS" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2026/05/HSBC_MASTERBRAND_LOGO_RGB.png" alt="HSBC" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2026/03/Ford_Oval_Blue_Screen_RGB_v1-scaled.png" alt="Ford" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2024/03/Unilever-final-resize.png" alt="Unilever" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2022/07/Pfizer-logo.jpg" alt="Pfizer" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2022/07/Coke-Logo-e1712286877592.jpg" alt="Coca-Cola" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2022/07/Capital-One-Logo.jpg" alt="Capital One" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2022/07/EMERSON-LOGO-1.png" alt="Emerson" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2023/07/Marriott-PH.png" alt="Marriott" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2022/07/Reckitt-Logo.jpg" alt="Reckitt" /></div>
-        </div>
-        <div class="logo-set">
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2026/04/AWS_logo_RGB_1c_Gray850.png" alt="" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2026/05/HSBC_MASTERBRAND_LOGO_RGB.png" alt="" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2026/03/Ford_Oval_Blue_Screen_RGB_v1-scaled.png" alt="" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2024/03/Unilever-final-resize.png" alt="" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2022/07/Pfizer-logo.jpg" alt="" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2022/07/Coke-Logo-e1712286877592.jpg" alt="" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2022/07/Capital-One-Logo.jpg" alt="" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2022/07/EMERSON-LOGO-1.png" alt="" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2023/07/Marriott-PH.png" alt="" /></div>
-          <div class="logo-tile"><img src="https://amchamphilippines.com/wp-content/uploads/2022/07/Reckitt-Logo.jpg" alt="" /></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section portal">
-      <div class="container">
-        <div class="portal-panel reveal">
-          <div class="portal-media"><img src="https://amchamphilippines.com/wp-content/uploads/2024/04/IMG_5169cropped.jpg" alt="AmCham Philippines event audience" /></div>
-          <div class="portal-copy"><span class="eyebrow">AmCham–ARTA Action Portal</span><h2>Turn business friction into meaningful reform.</h2><p>The AAA Portal gives AmCham members a dedicated channel to report red tape, unclear procedures and delays when dealing with government agencies.</p><a class="btn btn-red" href="https://arta.gov.ph/aaa-portal/" target="_blank" rel="noreferrer">Access the AAA Portal <span aria-hidden="true">↗</span></a></div>
-        </div>
-      </div>
-    </section>
-
-
-    <section class="section contact-concierge" id="contact">
-      <div class="container">
-        <div class="contact-shell reveal">
-          <div class="contact-intro">
-            <span class="eyebrow">Direct access</span>
-            <h2>Talk to the right AmCham team.</h2>
-            <p>Whether you are joining the Chamber, attending a program or exploring a partnership, reach the right team without searching through the site.</p>
-            <div class="contact-actions">
-              <a class="btn btn-red" href="https://amchamphilippines.com/contact-us/">Contact us
-                <svg width="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </a>
-              <a class="contact-phone" href="tel:+63288187911"><svg width="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.28-1.28a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92Z"/></svg> (632) 8818 7911–13</a>
-            </div>
-          </div>
-          <div class="contact-route-grid" aria-label="Contact routes">
-            <a class="contact-route" href="https://amchamphilippines.com/membership/types-and-rates/">
-              <span class="contact-route-icon"><svg width="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21a8 8 0 0 0-16 0M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/></svg></span>
-              <span><strong>Membership inquiries</strong><span>Types, rates, requirements and member benefits.</span></span><span class="contact-route-arrow">↗</span>
-            </a>
-            <a class="contact-route" href="https://amchamphilippines.com/events/">
-              <span class="contact-route-icon"><svg width="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg></span>
-              <span><strong>Events and programs</strong><span>Registration, schedules, committees and training.</span></span><span class="contact-route-arrow">↗</span>
-            </a>
-            <a class="contact-route" href="mailto:amcham@amchamphilippines.com">
-              <span class="contact-route-icon"><svg width="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
-              <span><strong>General and partnership inquiries</strong><span>Connect with the Chamber for collaborations and support.</span></span><span class="contact-route-arrow">↗</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="newsletter">
-      <div class="container newsletter-grid reveal">
-        <div><span class="eyebrow">Stay informed</span><h2>Get more from AmCham Philippines.</h2></div>
-        <form class="subscribe-wrap" id="subscribeForm"><div class="subscribe-form"><label class="sr-only" for="emailInput" style="position:absolute;clip:rect(0 0 0 0)">Email address</label><input id="emailInput" type="email" placeholder="Enter your business email" required /><button class="btn btn-light" type="submit">Subscribe for updates</button></div><p class="form-note" id="formNote">By subscribing, you agree to receive AmCham updates and may unsubscribe anytime.</p></form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a class="brand" href="#top"><img class="brand-logo" src="https://amchamphilippines.com/wp-content/uploads/2022/06/AMCHAM-Logo_Vertical-1.png" alt="AmCham Philippines logo" /><span class="brand-copy"><strong>AmCham Philippines</strong><span>American Chamber of Commerce</span></span></a>
-          <p>One of the Philippines' oldest and most influential business organizations, promoting trade, investment and a more competitive economy.</p>
-          <div class="footer-social"><a href="https://www.linkedin.com/company/amcham-philippines/" aria-label="LinkedIn">in</a><a href="https://www.facebook.com/amchamphilippines" aria-label="Facebook">f</a><a href="https://www.instagram.com/amchamphilippines/" aria-label="Instagram">◎</a><a href="https://www.youtube.com/" aria-label="YouTube">▶</a></div>
-        </div>
-        <div class="footer-col"><h3>Explore</h3><a href="https://amchamphilippines.com/who-we-are/">Who we are</a><a href="https://amchamphilippines.com/events/">Events</a><a href="https://amchamphilippines.com/committee/">Committees</a><a href="https://amchamphilippines.com/advocacy/">Advocacies</a><a href="https://amchamphilippines.com/publication/">Publications</a></div>
-        <div class="footer-col"><h3>Membership</h3><a href="https://amchamphilippines.com/membership/types-and-rates/">Types and rates</a><a href="https://amchamphilippines.com/membership/corporate-membership-directory/">Members' list</a><a href="https://amchamphilippines.com/membership/partners/">Corporate partners</a><a href="https://amchamphilippines.com/membership/discount-card/">Member discounts</a><a href="https://amchamphilippines.glueup.com/account/login">Member login</a></div>
-        <div class="footer-col"><h3>Contact</h3><span>2nd Floor, Corinthian Plaza Building, 121 Paseo de Roxas corner Gamboa Street, Legazpi Village, Makati City 1229</span><a href="tel:+63288187911">(632) 8818 7911 to 13</a><a href="mailto:amcham@amchamphilippines.com">amcham@amchamphilippines.com</a></div>
-      </div>
-      <div class="footer-bottom"><span>© 2026 American Chamber of Commerce of the Philippines, Inc.</span><span class="footer-bottom-links"><a href="https://amchamphilippines.com/privacy-policy/">Privacy Policy</a><a href="https://amchamphilippines.com/terms-and-conditions/">Terms & Conditions</a></span></div>
-    </div>
-  </footer>
-
-
-
-  <nav class="access-dock" aria-label="Quick access">
-    <span class="access-dock-label">Quick access</span>
-    <a class="access-link" href="#events" aria-label="Browse upcoming events">
-      <span class="access-link-icon"><svg width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h3M8 17h5"/></svg></span>
-      <span class="access-link-copy"><small>Discover</small><strong>Events</strong></span>
-    </a>
-    <a class="access-link" href="#membership" aria-label="Explore AmCham membership">
-      <span class="access-link-icon"><svg width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21a8 8 0 0 0-16 0M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"/><path d="m16.8 6.5 1.1 1.1 2.1-2.1"/></svg></span>
-      <span class="access-link-copy"><small>Grow with us</small><strong>Membership</strong></span>
-    </a>
-    <a class="access-link contact" href="#contact" aria-label="Contact AmCham Philippines">
-      <span class="access-link-icon"><svg width="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><path d="M8 9h8M8 13h5"/></svg></span>
-      <span class="access-link-copy"><small>Talk to us</small><strong>Contact</strong></span>
-    </a>
-  </nav>
-
-  <section class="assistant-panel" id="assistantPanel" role="dialog" aria-modal="false" aria-labelledby="assistantTitle" aria-hidden="true">
-    <header class="assistant-head">
-      <div class="assistant-identity">
-        <span class="assistant-avatar"><svg width="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><path d="M8 9h8M8 13h5"/></svg></span>
-        <span><strong id="assistantTitle">AmCham Assistant</strong><span class="assistant-status">Website guide online</span></span>
-      </div>
-      <button class="assistant-close" id="assistantClose" type="button" aria-label="Close AmCham Assistant"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
-    </header>
-    <div class="assistant-log" id="assistantLog" aria-live="polite">
-      <div class="chat-message assistant">Hello! I can guide you to membership information, upcoming events or the right AmCham contact.</div>
-    </div>
-    <div class="assistant-suggestions" aria-label="Suggested questions">
-      <button class="assistant-suggestion" type="button" data-chat-intent="membership">How can I join?</button>
-      <button class="assistant-suggestion" type="button" data-chat-intent="events">Upcoming events</button>
-      <button class="assistant-suggestion" type="button" data-chat-intent="contact">Contact a team</button>
-    </div>
-    <form class="assistant-form" id="assistantForm">
-      <label class="sr-only" for="assistantInput" style="position:absolute;clip:rect(0 0 0 0)">Ask the AmCham Assistant</label>
-      <input id="assistantInput" type="text" maxlength="160" placeholder="Ask about membership, events…" autocomplete="off" />
-      <button class="assistant-send" type="submit" aria-label="Send message"><svg width="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
-    </form>
-    <div class="assistant-note">Prototype assistant — connect this interface to Tidio, Intercom or your preferred CRM for live deployment.</div>
-  </section>
-  <button class="assistant-launcher" id="assistantLauncher" type="button" aria-label="Open AmCham Assistant" aria-expanded="false" aria-controls="assistantPanel">
-    <span class="assistant-launcher-copy"><small>Need help?</small><strong>Ask AmCham</strong></span>
-    <span class="assistant-launcher-icon"><svg width="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><path d="M8 9h8M8 13h5"/></svg></span>
-  </button>
-
-
-  <div class="search-modal" id="searchModal" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
-    <div class="search-dialog">
-      <div class="search-input-wrap"><svg width="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></svg><input id="siteSearch" type="search" placeholder="Search events, committees, membership…" autocomplete="off" /><span class="key">ESC</span></div>
-      <div class="search-results" id="searchResults"><div class="search-label" id="searchTitle">Quick access</div>
-        <a class="search-result" data-search="membership join types rates member" href="https://amchamphilippines.com/membership/types-and-rates/"><span class="search-result-icon">M</span><span><strong>Membership types and rates</strong><span>Find the right AmCham membership.</span></span><span>↗</span></a>
-        <a class="search-result" data-search="events calendar meetings webinars training workshops" href="https://amchamphilippines.com/events/"><span class="search-result-icon">E</span><span><strong>Events and calendar</strong><span>Discover upcoming meetings, programs and workshops.</span></span><span>↗</span></a>
-        <a class="search-result" data-search="committees sector ict trade sustainability healthcare" href="https://amchamphilippines.com/committee/"><span class="search-result-icon">C</span><span><strong>Sector committees</strong><span>Connect around shared sectors and priorities.</span></span><span>↗</span></a>
-        <a class="search-result" data-search="advocacy position papers arangkada integrity" href="https://amchamphilippines.com/advocacy/"><span class="search-result-icon">A</span><span><strong>Advocacies</strong><span>Explore AmCham's policy and reform initiatives.</span></span><span>↗</span></a>
-        <a class="search-result" data-search="publication business journal directory multimedia" href="https://amchamphilippines.com/publication/"><span class="search-result-icon">P</span><span><strong>Publications</strong><span>Read journals, reports and special publications.</span></span><span>↗</span></a>
-        <a class="search-result" data-search="contact phone email office makati" href="https://amchamphilippines.com/contact-us/"><span class="search-result-icon">@</span><span><strong>Contact AmCham</strong><span>Get in touch with the Chamber.</span></span><span>↗</span></a>
-        <div class="search-empty" id="searchEmpty">No matching section found. Try “membership”, “events” or “committees”.</div>
-      </div>
-    </div>
-  </div>
-
-  <script>
+<a aria-label="Member login" class="login-link login-icon" href="https://amchamphilippines.glueup.com/account/login" rel="noreferrer" target="_blank" title="Member login">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24" width="17"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"></path></svg>
+</a>
+<a class="btn btn-sm btn-red" href="https://amchamphilippines.com/membership/types-and-rates/">Join AmCham</a>
+<button aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle" id="themeToggle" title="Toggle day / night mode" type="button">
+<svg aria-hidden="true" class="sun" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"></path></svg>
+<svg aria-hidden="true" class="moon" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.7 8.7 0 1 0 20.5 14.2Z"></path></svg>
+</button>
+<button aria-expanded="false" aria-label="Open navigation" class="mobile-toggle" id="mobileToggle">
+<svg fill="none" id="menuIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="22"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+</button>
+</div>
+</div>
+</header>
+<div aria-hidden="true" class="mobile-panel" id="mobilePanel">
+<nav aria-label="Mobile navigation" class="mobile-menu">
+<a href="https://amchamphilippines.com/who-we-are/">About</a>
+<a href="https://amchamphilippines.com/membership/">Membership</a>
+<a href="https://amchamphilippines.com/events/">Events</a>
+<a href="https://amchamphilippines.com/committee/">Committees</a>
+<a href="https://amchamphilippines.com/advocacy/">Advocacy &amp; Services</a>
+<a href="https://amchamphilippines.com/business-services/">Business &amp; Training Services</a><a href="https://amchamphilippines.com/publication/">Publications</a>
+<a href="https://amchamphilippines.com/marketing/">Marketing</a><a href="https://amchamphilippines.com/contact-us/">Contact</a>
+<a class="btn btn-red mobile-cta" href="https://amchamphilippines.com/membership/types-and-rates/">Become a member</a>
+</nav>
+</div>
+<main id="main">
+<section class="hero" id="top">
+<div class="aurora one"></div><div class="aurora two"></div>
+<div class="container hero-layout">
+<div class="hero-copy reveal">
+<div class="hero-kicker"><i>PH</i> American Chamber of Commerce of the Philippines</div>
+<h1>Where business, policy and <em>opportunity</em> move together.</h1>
+<p class="hero-lede">A trusted platform for leaders, innovators and institutions shaping a more competitive and prosperous Philippine economy.</p>
+<div class="hero-actions">
+<a class="btn btn-red" href="https://amchamphilippines.com/membership/types-and-rates/">Become an AmCham member
+              <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="17"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a class="btn btn-outline" href="#events">Explore upcoming events</a>
+</div>
+<div aria-label="AmCham highlights" class="hero-proof">
+<div class="proof-item"><strong class="proof-number">1902</strong><span class="proof-label">Established</span></div>
+<div class="proof-item"><strong class="proof-number">20</strong><span class="proof-label">Sector committees</span></div>
+<div class="proof-item"><strong class="proof-number">4</strong><span class="proof-label">Service pillars</span></div>
+</div>
+</div>
+<div class="hero-console reveal" style="transition-delay:.12s">
+<div class="console-top">
+<div class="console-title"><small>What's happening</small><strong>Next at AmCham</strong></div>
+<span class="live-pill">Updated</span>
+</div>
+<a class="featured-event" href="https://amchamphilippines.com/events/" rel="noreferrer" target="_blank">
+<img alt="C-Suite North Side event graphic" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-25-26-C-Suite-North-Side-Bringing-Business-Closer-to-You-BSB-PABS.jpg"/>
+<div class="featured-event-copy">
+<span class="event-label">Featured event</span>
+<h2>C-Suite North Side: Bringing Business Closer to You</h2>
+<div class="featured-event-meta"><span>June 25, 2026</span><span>07:30–09:00</span></div>
+</div>
+</a>
+<div class="console-bottom">
+<a class="mini-tile" href="#committees"><span>Engage</span><strong>Explore 20 committees →</strong></a>
+<a class="mini-tile" href="#publications"><span>Insights</span><strong>Read the latest journal →</strong></a>
+</div>
+<div class="floating-chip"><small>Member advantage</small><strong>Network. Influence. Grow.</strong></div>
+</div>
+</div>
+</section>
+<div class="trust-strip">
+<div class="container trust-panel reveal">
+<div class="trust-intro"><span>Built for meaningful connections</span><strong>One chamber. A world of business possibilities.</strong></div>
+<div class="trust-stat"><strong data-count="124">0</strong><span>Years of service</span></div>
+<div class="trust-stat"><strong>US–PH</strong><span>Trade and investment</span></div>
+<div class="trust-stat"><strong>Nationwide</strong><span>Chapters and network</span></div>
+</div>
+</div>
+<section class="section journeys" id="about">
+<div class="container">
+<div class="section-head reveal">
+<div><span class="eyebrow">What membership unlocks</span><h2 class="section-title">A platform designed to move <em>business forward.</em></h2></div>
+<div><p class="section-copy">AmCham connects organizations to the conversations, relationships, visibility and intelligence that shape business outcomes.</p><a class="text-link" href="https://amchamphilippines.com/who-we-are/">Discover who we are <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+<div class="journey-grid">
+<a class="journey-card reveal spotlight" href="https://amchamphilippines.com/membership/">
+<div class="journey-index"><span>01</span><span class="journey-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="22"><circle cx="8" cy="8" r="3"></circle><circle cx="16" cy="8" r="3"></circle><path d="M2 20a6 6 0 0 1 12 0M10 20a6 6 0 0 1 12 0"></path></svg></span></div>
+<h3>Build your network</h3><p>Meet decision-makers, peers, investors and industry leaders across sectors and regions.</p><span class="journey-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="17"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+<a class="journey-card reveal spotlight" href="https://amchamphilippines.com/advocacy/" style="transition-delay:.06s">
+<div class="journey-index"><span>02</span><span class="journey-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="22"><path d="M4 18V6l8-3 8 3v12l-8 3-8-3Z"></path><path d="M8 8h8M8 12h8M8 16h5"></path></svg></span></div>
+<h3>Shape the agenda</h3><p>Add your voice to policy conversations and advocacy initiatives affecting business.</p><span class="journey-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="17"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+<a class="journey-card reveal spotlight" href="https://amchamphilippines.com/publication/" style="transition-delay:.12s">
+<div class="journey-index"><span>03</span><span class="journey-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="22"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M14 3v6h6M8 13h8M8 17h5"></path></svg></span></div>
+<h3>Access intelligence</h3><p>Stay informed through business journals, briefings, research and sector discussions.</p><span class="journey-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="17"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+<a class="journey-card reveal spotlight" href="https://amchamphilippines.com/marketing/" style="transition-delay:.18s">
+<div class="journey-index"><span>04</span><span class="journey-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="22"><path d="m4 13 4 4L20 5"></path><path d="M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10"></path></svg></span></div>
+<h3>Increase visibility</h3><p>Put your brand in front of an influential, highly engaged business community.</p><span class="journey-arrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="17"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+</a>
+</div>
+</div>
+</section>
+<section class="section events" id="events">
+<div class="container">
+<div class="section-head reveal">
+<div><span class="eyebrow">Events at AmCham</span><h2 class="section-title">Be in the room where <em>business connects.</em></h2></div>
+<div><p class="section-copy">From C-suite conversations and policy briefings to training sessions and sector meetings, every event is designed for useful exchange.</p><a class="text-link" href="https://amchamphilippines.com/events/" style="color:white">View full events calendar <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+<div class="events-toolbar reveal">
+<div aria-label="Event filters" class="event-filters">
+<button class="filter-chip active" data-filter="all">All events</button>
+<button class="filter-chip" data-filter="leadership">Leadership</button>
+<button class="filter-chip" data-filter="committee">Committee</button>
+<button class="filter-chip" data-filter="learning">Learning</button>
+</div>
+<div class="slider-controls">
+<button aria-label="Previous events" class="round-btn" id="eventPrev"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="m15 18-6-6 6-6"></path></svg></button>
+<button aria-label="Next events" class="round-btn" id="eventNext"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="m9 18 6-6-6-6"></path></svg></button>
+</div>
+</div>
+<div class="event-scroller reveal" id="eventScroller">
+<a class="event-card" data-category="learning" href="https://amchamphilippines.com/events/" rel="noreferrer" target="_blank">
+<div class="event-media"><img alt="Credibility versus Virality event graphic" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-23-26-Credebility-vs.-Virality-Journalism-in-a-New-Media-Landscape-CIR-YP.jpg"/><div class="event-date"><div><b>23</b><span>Jun</span></div></div></div>
+<div class="event-body"><span class="event-type">Young Professionals</span><h3>Credibility vs. Virality: Journalism in a New Media Landscape</h3><p>Explore trust, speed and responsibility in an era of rapidly evolving media.</p><div class="event-meta"><span>10:00–12:00</span><span class="event-arrow">↗</span></div></div>
+</a>
+<a class="event-card" data-category="learning" href="https://amchamphilippines.com/events/" rel="noreferrer" target="_blank">
+<div class="event-media"><img alt="Workplace wellbeing event graphic" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-24-26-Addressing-Burnout-Psychosocial-and-Mental-Health-Issues-in-the-Workplace-CIR-HCR.jpg"/><div class="event-date"><div><b>24</b><span>Jun</span></div></div></div>
+<div class="event-body"><span class="event-type">Human Capital</span><h3>Addressing Burnout and Psychosocial Issues in the Workplace</h3><p>Practical insights for healthier, more resilient and more productive teams.</p><div class="event-meta"><span>10:00–12:00</span><span class="event-arrow">↗</span></div></div>
+</a>
+<a class="event-card" data-category="leadership" href="https://amchamphilippines.com/events/" rel="noreferrer" target="_blank">
+<div class="event-media"><img alt="C-Suite North Side event graphic" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-25-26-C-Suite-North-Side-Bringing-Business-Closer-to-You-BSB-PABS.jpg"/><div class="event-date"><div><b>25</b><span>Jun</span></div></div></div>
+<div class="event-body"><span class="event-type">C-Suite Series</span><h3>C-Suite North Side: Bringing Business Closer to You</h3><p>A focused executive breakfast created to expand high-value connections.</p><div class="event-meta"><span>07:30–09:00</span><span class="event-arrow">↗</span></div></div>
+</a>
+<a class="event-card" data-category="committee" href="https://amchamphilippines.com/events/" rel="noreferrer" target="_blank">
+<div class="event-media"><img alt="Legislative Committee meeting graphic" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-25-26-June-Legislative-Committee-Meeting-AmCham-x-TAPP.jpg"/><div class="event-date"><div><b>25</b><span>Jun</span></div></div></div>
+<div class="event-body"><span class="event-type">Legislative Committee</span><h3>June Legislative Committee Meeting</h3><p>Discuss the latest policy developments affecting competitiveness and investment.</p><div class="event-meta"><span>10:00–12:00</span><span class="event-arrow">↗</span></div></div>
+</a>
+<a class="event-card" data-category="committee" href="https://amchamphilippines.com/events/" rel="noreferrer" target="_blank">
+<div class="event-media"><img alt="Manufacturing policy event graphic" src="https://amchamphilippines.com/wp-content/uploads/2026/06/06-18-26-Standard-Minimum-Wage-Policy-Proposals-and-Impications-for-the-Manufacturing-Sector-CIR-MANU.jpg"/><div class="event-date"><div><b>24</b><span>Jun</span></div></div></div>
+<div class="event-body"><span class="event-type">Manufacturing</span><h3>Wage Growth and Competitiveness: Manufacturing Implications</h3><p>Examine the connection between wage policy, jobs, planning and investment.</p><div class="event-meta"><span>13:00–15:00</span><span class="event-arrow">↗</span></div></div>
+</a>
+</div>
+</div>
+</section>
+<section class="section membership" id="membership">
+<div class="container">
+<div class="membership-panel reveal">
+<div class="membership-copy">
+<span class="eyebrow">Membership</span>
+<h2>Your seat at the table starts <em>here.</em></h2>
+<p>Join a thriving business community built around four pillars: advocacy, information, networking and marketing opportunities.</p>
+<div class="membership-actions"><a class="btn btn-red" href="https://amchamphilippines.com/membership/types-and-rates/">Explore membership types</a><a class="btn btn-outline" href="https://amchamphilippines.com/membership/amcham-membership-faqs/">Read membership FAQ</a></div>
+</div>
+<div class="benefit-stack">
+<a class="benefit-card" href="https://amchamphilippines.com/advocacy/"><span class="benefit-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="21"><path d="M5 20V10l7-6 7 6v10M9 20v-5h6v5"></path></svg></span><span><strong>Advocacy</strong><span>Contribute to a credible collective voice on business issues.</span></span><span class="benefit-number">01</span></a>
+<a class="benefit-card" href="https://amchamphilippines.com/publication/"><span class="benefit-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="21"><path d="M4 5h16v14H4zM8 9h8M8 13h8M8 17h5"></path></svg></span><span><strong>Information</strong><span>Gain access to insights, briefings, publications and updates.</span></span><span class="benefit-number">02</span></a>
+<a class="benefit-card" href="https://amchamphilippines.com/events/"><span class="benefit-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="21"><circle cx="8" cy="8" r="3"></circle><circle cx="16" cy="8" r="3"></circle><path d="M2 20a6 6 0 0 1 12 0M10 20a6 6 0 0 1 12 0"></path></svg></span><span><strong>Networking</strong><span>Create relevant relationships through curated interactions.</span></span><span class="benefit-number">03</span></a>
+<a class="benefit-card" href="https://amchamphilippines.com/marketing/"><span class="benefit-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="21"><path d="M4 12h16M12 4v16"></path><circle cx="12" cy="12" r="9"></circle></svg></span><span><strong>Marketing opportunities</strong><span>Build visibility within an influential business audience.</span></span><span class="benefit-number">04</span></a>
+</div>
+</div>
+</div>
+</section>
+<section class="section committees" id="committees">
+<div class="container">
+<div class="section-head reveal">
+<div><span class="eyebrow">20 sector committees</span><h2 class="section-title">Deep expertise. Shared interests. <em>Collective influence.</em></h2></div>
+<div><p class="section-copy">AmCham committees bring members together around the issues, sectors and opportunities that matter most to the Philippine business ecosystem.</p><a class="text-link" href="https://amchamphilippines.com/committee/">View all committees <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+<div class="committee-shell reveal">
+<article class="committee-feature" id="committeeFeature">
+<img alt="Information and Communications Technology committee icon" id="committeeFeatureImage" src="https://amchamphilippines.com/wp-content/uploads/2022/06/ICT.png"/>
+<h3 id="committeeFeatureTitle">Information &amp; Communications Technology</h3>
+<p id="committeeFeatureText">A liaison between the business community and the Philippine and U.S. governments on telecommunications and information technology policy.</p>
+<a class="text-link" href="https://amchamphilippines.com/committee/">Explore this committee <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</article>
+<div class="committee-list" role="list">
+<button class="committee-item active" data-image="https://amchamphilippines.com/wp-content/uploads/2022/06/ICT.png" data-text="A liaison between the business community and the Philippine and U.S. governments on telecommunications and information technology policy." data-title="Information &amp; Communications Technology"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2022/06/ICT.png"/><span><strong>Information &amp; Communications Technology</strong><span>Digital policy, innovation and industry exchange</span></span><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+<button class="committee-item" data-image="https://amchamphilippines.com/wp-content/uploads/2022/06/TRADE.png" data-text="Promotes stronger United States–Philippines economic relations through dialogue, information exchange and investment-focused forums." data-title="Trade &amp; Investment"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2022/06/TRADE.png"/><span><strong>Trade &amp; Investment</strong><span>Cross-border opportunity and economic relations</span></span><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+<button class="committee-item" data-image="https://amchamphilippines.com/wp-content/uploads/2022/06/SUS.png" data-text="Champions member efforts that support a more resilient, responsible and sustainable future for business and communities." data-title="Sustainability"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2022/06/SUS.png"/><span><strong>Sustainability</strong><span>Responsible growth and future-ready business</span></span><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+<button class="committee-item" data-image="https://amchamphilippines.com/wp-content/uploads/2022/06/PWOA.png" data-text="Promotes professional women's leadership, development and visibility while advancing gender equality in business." data-title="Professional Women of AmCham"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2022/06/PWOA.png"/><span><strong>Professional Women of AmCham</strong><span>Leadership, professional growth and visibility</span></span><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+<button class="committee-item" data-image="https://amchamphilippines.com/wp-content/uploads/2022/06/YP.png" data-text="Engages and develops the next generation of business leaders through access to knowledge, networks and senior industry perspectives." data-title="Young Professionals of AmCham"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2022/06/YP.png"/><span><strong>Young Professionals of AmCham</strong><span>Next-generation leadership and connection</span></span><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+<button class="committee-item" data-image="https://amchamphilippines.com/wp-content/uploads/2022/06/HCW.png" data-text="Supports health and wellness initiatives across public and private sectors while sharing relevant medical information with members." data-title="Healthcare &amp; Wellness"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2022/06/HCW.png"/><span><strong>Healthcare &amp; Wellness</strong><span>Health policy, awareness and nation-building</span></span><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+<div class="committee-more"><a class="btn" href="https://amchamphilippines.com/committee/">Browse all 20 committees</a></div>
+</div>
+</div>
+</div>
+</section>
+<section class="section impact" id="impact">
+<div class="container">
+<div class="section-head reveal">
+<div><span class="eyebrow">How AmCham creates value</span><h2 class="section-title">From collective voice to practical <em>business support.</em></h2></div>
+<p class="section-copy">The Chamber connects influence, market access, capability-building and brand visibility in one integrated member ecosystem.</p>
+</div>
+<div class="impact-grid">
+<a class="impact-card reveal" href="https://amchamphilippines.com/advocacy/"><span class="impact-number">01 / Advocacy</span><span class="impact-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="25"><path d="M4 19V5l8-3 8 3v14l-8 3-8-3Z"></path><path d="M8 8h8M8 12h8M8 16h5"></path></svg></span><h3>Strengthen the business climate</h3><p>Bring member priorities into consultations, meetings, position papers and reform initiatives.</p></a>
+<a class="impact-card reveal" href="https://amchamphilippines.com/marketing/" style="transition-delay:.06s"><span class="impact-number">02 / Marketing</span><span class="impact-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="25"><path d="M3 11h18M5 7h14M7 15h10M9 19h6"></path></svg></span><h3>Reach a high-value audience</h3><p>Position your brand through B2B and B2C marketing channels within the AmCham community.</p></a>
+<a class="impact-card reveal" href="https://amchamphilippines.com/business-services/" style="transition-delay:.12s"><span class="impact-number">03 / Business Services</span><span class="impact-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="25"><rect height="14" rx="2" width="18" x="3" y="6"></rect><path d="M8 6V3h8v3M3 12h18"></path></svg></span><h3>Navigate opportunities with confidence</h3><p>Access business consultancy, networking, promotion and market intelligence support.</p></a>
+<a class="impact-card reveal" href="https://amchamphilippines.com/business-services/training-services/" style="transition-delay:.18s"><span class="impact-number">04 / Training</span><span class="impact-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="25"><path d="m3 10 9-5 9 5-9 5-9-5Z"></path><path d="M7 12v5c3 2 7 2 10 0v-5"></path></svg></span><h3>Build globally competitive teams</h3><p>Develop practical skills across marketing, finance, human resources and other business functions.</p></a>
+</div>
+</div>
+</section>
+<section class="section publications" id="publications">
+<div class="container">
+<div class="section-head reveal">
+<div><span class="eyebrow">Ideas that move industries</span><h2 class="section-title">Read what business leaders are <em>thinking next.</em></h2></div>
+<div><p class="section-copy">Discover timely perspectives on workforce transformation, technology, sustainability, cybersecurity and the future of Philippine business.</p><a class="text-link" href="https://amchamphilippines.com/publications-hub/">Visit publications hub <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+<div class="publication-layout reveal">
+<article class="publication-main">
+<div class="publication-copy"><span class="eyebrow">Latest business journal</span><h3>Navigating the Next Era of Human Capital</h3><p>Timely conversations on workforce transformation, AI integration, platform economies, sustainability, cybersecurity and the future of work.</p><a class="btn btn-red" href="https://amchamphilippines.com/publication/">Explore the latest issue</a></div>
+<div class="cover-wrap"><img alt="May 2026 AmCham Business Journal cover" src="https://amchamphilippines.com/wp-content/uploads/2026/05/ABJ-May-2026-Issue-cover.jpg"/></div>
+</article>
+<div class="publication-side">
+<article class="publication-card red"><span class="card-icon">↗</span><h3>The Future Starts Here</h3><p>Perspectives from emerging professionals and the leaders shaping what comes next.</p></article>
+<article class="publication-card"><span class="card-icon">↗</span><h3>Member Directory</h3><p>Turn membership into meaningful business connections through the latest directory.</p></article>
+</div>
+</div>
+</div>
+</section>
+<section aria-label="Corporate partners" class="partners">
+<div class="container partners-intro reveal"><div><span class="eyebrow">Trusted across industries</span><h2>Corporate partners</h2></div><p>AmCham brings together respected local and global organizations committed to stronger business and economic development.</p></div>
+<div aria-hidden="true" class="logo-marquee">
+<div class="logo-set">
+<div class="logo-tile"><img alt="AWS" src="https://amchamphilippines.com/wp-content/uploads/2026/04/AWS_logo_RGB_1c_Gray850.png"/></div>
+<div class="logo-tile"><img alt="HSBC" src="https://amchamphilippines.com/wp-content/uploads/2026/05/HSBC_MASTERBRAND_LOGO_RGB.png"/></div>
+<div class="logo-tile"><img alt="Ford" src="https://amchamphilippines.com/wp-content/uploads/2026/03/Ford_Oval_Blue_Screen_RGB_v1-scaled.png"/></div>
+<div class="logo-tile"><img alt="Unilever" src="https://amchamphilippines.com/wp-content/uploads/2024/03/Unilever-final-resize.png"/></div>
+<div class="logo-tile"><img alt="Pfizer" src="https://amchamphilippines.com/wp-content/uploads/2022/07/Pfizer-logo.jpg"/></div>
+<div class="logo-tile"><img alt="Coca-Cola" src="https://amchamphilippines.com/wp-content/uploads/2022/07/Coke-Logo-e1712286877592.jpg"/></div>
+<div class="logo-tile"><img alt="Capital One" src="https://amchamphilippines.com/wp-content/uploads/2022/07/Capital-One-Logo.jpg"/></div>
+<div class="logo-tile"><img alt="Emerson" src="https://amchamphilippines.com/wp-content/uploads/2022/07/EMERSON-LOGO-1.png"/></div>
+<div class="logo-tile"><img alt="Marriott" src="https://amchamphilippines.com/wp-content/uploads/2023/07/Marriott-PH.png"/></div>
+<div class="logo-tile"><img alt="Reckitt" src="https://amchamphilippines.com/wp-content/uploads/2022/07/Reckitt-Logo.jpg"/></div>
+</div>
+<div class="logo-set">
+<div class="logo-tile"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2026/04/AWS_logo_RGB_1c_Gray850.png"/></div>
+<div class="logo-tile"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2026/05/HSBC_MASTERBRAND_LOGO_RGB.png"/></div>
+<div class="logo-tile"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2026/03/Ford_Oval_Blue_Screen_RGB_v1-scaled.png"/></div>
+<div class="logo-tile"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2024/03/Unilever-final-resize.png"/></div>
+<div class="logo-tile"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2022/07/Pfizer-logo.jpg"/></div>
+<div class="logo-tile"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2022/07/Coke-Logo-e1712286877592.jpg"/></div>
+<div class="logo-tile"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2022/07/Capital-One-Logo.jpg"/></div>
+<div class="logo-tile"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2022/07/EMERSON-LOGO-1.png"/></div>
+<div class="logo-tile"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2023/07/Marriott-PH.png"/></div>
+<div class="logo-tile"><img alt="" src="https://amchamphilippines.com/wp-content/uploads/2022/07/Reckitt-Logo.jpg"/></div>
+</div>
+</div>
+</section>
+<section class="section portal">
+<div class="container">
+<div class="portal-panel reveal">
+<div class="portal-media"><img alt="AmCham Philippines event audience" src="https://amchamphilippines.com/wp-content/uploads/2024/04/IMG_5169cropped.jpg"/></div>
+<div class="portal-copy"><span class="eyebrow">AmCham–ARTA Action Portal</span><h2>Turn business friction into meaningful reform.</h2><p>The AAA Portal gives AmCham members a dedicated channel to report red tape, unclear procedures and delays when dealing with government agencies.</p><a class="btn btn-red" href="https://arta.gov.ph/aaa-portal/" rel="noreferrer" target="_blank">Access the AAA Portal <span aria-hidden="true">↗</span></a></div>
+</div>
+</div>
+</section>
+<section class="section contact-concierge" id="contact">
+<div class="container">
+<div class="contact-shell reveal">
+<div class="contact-intro">
+<span class="eyebrow">Direct access</span>
+<h2>Talk to the right AmCham team.</h2>
+<p>Whether you are joining the Chamber, attending a program or exploring a partnership, reach the right team without searching through the site.</p>
+<div class="contact-actions">
+<a class="btn btn-red" href="https://amchamphilippines.com/contact-us/">Contact us
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="17"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+</a>
+<a class="contact-phone" href="tel:+63288187911"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="16"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.28-1.28a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92Z"></path></svg> (632) 8818 7911–13</a>
+</div>
+</div>
+<div aria-label="Contact routes" class="contact-route-grid">
+<a class="contact-route" href="https://amchamphilippines.com/membership/types-and-rates/">
+<span class="contact-route-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="21"><path d="M20 21a8 8 0 0 0-16 0M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"></path></svg></span>
+<span><strong>Membership inquiries</strong><span>Types, rates, requirements and member benefits.</span></span><span class="contact-route-arrow">↗</span>
+</a>
+<a class="contact-route" href="https://amchamphilippines.com/events/">
+<span class="contact-route-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="21"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg></span>
+<span><strong>Events and programs</strong><span>Registration, schedules, committees and training.</span></span><span class="contact-route-arrow">↗</span>
+</a>
+<a class="contact-route" href="mailto:amcham@amchamphilippines.com">
+<span class="contact-route-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="21"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m3 7 9 6 9-6"></path></svg></span>
+<span><strong>General and partnership inquiries</strong><span>Connect with the Chamber for collaborations and support.</span></span><span class="contact-route-arrow">↗</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="newsletter">
+<div class="container newsletter-grid reveal">
+<div><span class="eyebrow">Stay informed</span><h2>Get more from AmCham Philippines.</h2></div>
+<form class="subscribe-wrap" id="subscribeForm"><div class="subscribe-form"><label class="sr-only" for="emailInput" style="position:absolute;clip:rect(0 0 0 0)">Email address</label><input id="emailInput" placeholder="Enter your business email" required="" type="email"/><button class="btn btn-light" type="submit">Subscribe for updates</button></div><p class="form-note" id="formNote">By subscribing, you agree to receive AmCham updates and may unsubscribe anytime.</p></form>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<a class="brand" href="#top"><img alt="AmCham Philippines logo" class="brand-logo" src="https://amchamphilippines.com/wp-content/uploads/2022/06/AMCHAM-Logo_Vertical-1.png"/><span class="brand-copy"><strong>AmCham Philippines</strong><span>American Chamber of Commerce</span></span></a>
+<p>One of the Philippines' oldest and most influential business organizations, promoting trade, investment and a more competitive economy.</p>
+<div class="footer-social"><a aria-label="LinkedIn" href="https://www.linkedin.com/company/amcham-philippines/">in</a><a aria-label="Facebook" href="https://www.facebook.com/amchamphilippines">f</a><a aria-label="Instagram" href="https://www.instagram.com/amchamphilippines/">◎</a><a aria-label="YouTube" href="https://www.youtube.com/">▶</a></div>
+</div>
+<div class="footer-col"><h3>Explore</h3><a href="https://amchamphilippines.com/who-we-are/">Who we are</a><a href="https://amchamphilippines.com/events/">Events</a><a href="https://amchamphilippines.com/committee/">Committees</a><a href="https://amchamphilippines.com/advocacy/">Advocacies</a><a href="https://amchamphilippines.com/publication/">Publications</a></div>
+<div class="footer-col"><h3>Membership</h3><a href="https://amchamphilippines.com/membership/types-and-rates/">Types and rates</a><a href="https://amchamphilippines.com/membership/corporate-membership-directory/">Members' list</a><a href="https://amchamphilippines.com/membership/partners/">Corporate partners</a><a href="https://amchamphilippines.com/membership/discount-card/">Member discounts</a><a href="https://amchamphilippines.glueup.com/account/login">Member login</a></div>
+<div class="footer-col"><h3>Contact</h3><span>2nd Floor, Corinthian Plaza Building, 121 Paseo de Roxas corner Gamboa Street, Legazpi Village, Makati City 1229</span><a href="tel:+63288187911">(632) 8818 7911 to 13</a><a href="mailto:amcham@amchamphilippines.com">amcham@amchamphilippines.com</a></div>
+</div>
+<div class="footer-bottom"><span>© 2026 American Chamber of Commerce of the Philippines, Inc.</span><span class="footer-bottom-links"><a href="https://amchamphilippines.com/privacy-policy/">Privacy Policy</a><a href="https://amchamphilippines.com/terms-and-conditions/">Terms &amp; Conditions</a></span></div>
+</div>
+</footer>
+<nav aria-label="Quick access" class="access-dock">
+<span class="access-dock-label">Quick access</span>
+<a aria-label="Browse upcoming events" class="access-link" href="#events">
+<span class="access-link-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="20"><rect height="16" rx="2" width="18" x="3" y="5"></rect><path d="M16 3v4M8 3v4M3 10h18M8 14h3M8 17h5"></path></svg></span>
+<span class="access-link-copy"><small>Discover</small><strong>Events</strong></span>
+</a>
+<a aria-label="Explore AmCham membership" class="access-link" href="#membership">
+<span class="access-link-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="20"><path d="M20 21a8 8 0 0 0-16 0M12 13a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z"></path><path d="m16.8 6.5 1.1 1.1 2.1-2.1"></path></svg></span>
+<span class="access-link-copy"><small>Grow with us</small><strong>Membership</strong></span>
+</a>
+<a aria-label="Contact AmCham Philippines" class="access-link contact" href="#contact">
+<span class="access-link-icon"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="20"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"></path><path d="M8 9h8M8 13h5"></path></svg></span>
+<span class="access-link-copy"><small>Talk to us</small><strong>Contact</strong></span>
+</a>
+</nav>
+<section aria-hidden="true" aria-labelledby="assistantTitle" aria-modal="false" class="assistant-panel" id="assistantPanel" role="dialog">
+<header class="assistant-head">
+<div class="assistant-identity">
+<span class="assistant-avatar"><svg fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="22"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"></path><path d="M8 9h8M8 13h5"></path></svg></span>
+<span><strong id="assistantTitle">AmCham Assistant</strong><span class="assistant-status">Website guide online</span></span>
+</div>
+<button aria-label="Close AmCham Assistant" class="assistant-close" id="assistantClose" type="button"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M6 6l12 12M18 6 6 18"></path></svg></button>
+</header>
+<div aria-live="polite" class="assistant-log" id="assistantLog">
+<div class="chat-message assistant">Hello! I can guide you to membership information, upcoming events or the right AmCham contact.</div>
+</div>
+<div aria-label="Suggested questions" class="assistant-suggestions">
+<button class="assistant-suggestion" data-chat-intent="membership" type="button">How can I join?</button>
+<button class="assistant-suggestion" data-chat-intent="events" type="button">Upcoming events</button>
+<button class="assistant-suggestion" data-chat-intent="contact" type="button">Contact a team</button>
+</div>
+<form class="assistant-form" id="assistantForm">
+<label class="sr-only" for="assistantInput" style="position:absolute;clip:rect(0 0 0 0)">Ask the AmCham Assistant</label>
+<input autocomplete="off" id="assistantInput" maxlength="160" placeholder="Ask about membership, events…" type="text"/>
+<button aria-label="Send message" class="assistant-send" type="submit"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg></button>
+</form>
+<div class="assistant-note">Prototype assistant — connect this interface to Tidio, Intercom or your preferred CRM for live deployment.</div>
+</section>
+<button aria-controls="assistantPanel" aria-expanded="false" aria-label="Open AmCham Assistant" class="assistant-launcher" id="assistantLauncher" type="button">
+<span class="assistant-launcher-copy"><small>Need help?</small><strong>Ask AmCham</strong></span>
+<span class="assistant-launcher-icon"><svg fill="none" stroke="currentColor" stroke-width="1.9" viewbox="0 0 24 24" width="21"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"></path><path d="M8 9h8M8 13h5"></path></svg></span>
+</button>
+<div aria-labelledby="searchTitle" aria-modal="true" class="search-modal" id="searchModal" role="dialog">
+<div class="search-dialog">
+<div class="search-input-wrap"><svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="21"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.2-3.2"></path></svg><input autocomplete="off" id="siteSearch" placeholder="Search events, committees, membership…" type="search"/><span class="key">ESC</span></div>
+<div class="search-results" id="searchResults"><div class="search-label" id="searchTitle">Quick access</div>
+<a class="search-result" data-search="membership join types rates member" href="https://amchamphilippines.com/membership/types-and-rates/"><span class="search-result-icon">M</span><span><strong>Membership types and rates</strong><span>Find the right AmCham membership.</span></span><span>↗</span></a>
+<a class="search-result" data-search="events calendar meetings webinars training workshops" href="https://amchamphilippines.com/events/"><span class="search-result-icon">E</span><span><strong>Events and calendar</strong><span>Discover upcoming meetings, programs and workshops.</span></span><span>↗</span></a>
+<a class="search-result" data-search="committees sector ict trade sustainability healthcare" href="https://amchamphilippines.com/committee/"><span class="search-result-icon">C</span><span><strong>Sector committees</strong><span>Connect around shared sectors and priorities.</span></span><span>↗</span></a>
+<a class="search-result" data-search="advocacy position papers arangkada integrity" href="https://amchamphilippines.com/advocacy/"><span class="search-result-icon">A</span><span><strong>Advocacies</strong><span>Explore AmCham's policy and reform initiatives.</span></span><span>↗</span></a>
+<a class="search-result" data-search="publication business journal directory multimedia" href="https://amchamphilippines.com/publication/"><span class="search-result-icon">P</span><span><strong>Publications</strong><span>Read journals, reports and special publications.</span></span><span>↗</span></a>
+<a class="search-result" data-search="contact phone email office makati" href="https://amchamphilippines.com/contact-us/"><span class="search-result-icon">@</span><span><strong>Contact AmCham</strong><span>Get in touch with the Chamber.</span></span><span>↗</span></a>
+<div class="search-empty" id="searchEmpty">No matching section found. Try “membership”, “events” or “committees”.</div>
+</div>
+</div>
+</div>
+<script>
     const header = document.getElementById('siteHeader');
     const mobileToggle = document.getElementById('mobileToggle');
     const mobilePanel = document.getElementById('mobilePanel');
@@ -1713,39 +1581,6 @@
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape' && assistantPanel.classList.contains('open')) setAssistant(false);
     });
-
-
-    // Minimal right-side dot navigation restored from the earlier version.
-    // The observer keeps the active dot synchronized with the visible section.
-    const pageDockLinks = [...document.querySelectorAll('.page-dock a')];
-    const pageDockSections = pageDockLinks
-      .map(link => document.getElementById(link.dataset.section))
-      .filter(Boolean);
-
-    if (pageDockLinks.length && pageDockSections.length) {
-      const setActivePageDot = sectionId => {
-        pageDockLinks.forEach(link => {
-          const active = link.dataset.section === sectionId;
-          link.classList.toggle('active', active);
-          if (active) link.setAttribute('aria-current', 'location');
-          else link.removeAttribute('aria-current');
-        });
-      };
-
-      const pageDockObserver = new IntersectionObserver(entries => {
-        const visible = entries
-          .filter(entry => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActivePageDot(visible.target.id);
-      }, {
-        rootMargin: '-26% 0px -58% 0px',
-        threshold: [0, .15, .35, .6, .85]
-      });
-
-      pageDockSections.forEach(section => pageDockObserver.observe(section));
-      pageDockLinks.forEach(link => link.addEventListener('click', () => setActivePageDot(link.dataset.section)));
-    }
-
   </script>
 </body>
 </html>
