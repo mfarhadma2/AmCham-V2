@@ -1,0 +1,9 @@
+AMCHAM PHILIPPINES REDESIGN — VERSION 2 LOCKED
+
+Status: APPROVED / LOCKED
+Locked on: 2026-06-21
+
+This release preserves the approved Version 1 design and adds official live AmCham header and mobile navigation destinations.
+
+Do not overwrite or modify this release for future changes.
+All subsequent work must be saved as Version 3 or later.
