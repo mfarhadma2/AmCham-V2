@@ -1,17 +1,8 @@
-AMCHAM PHILIPPINES REDESIGN — VERSION 7 LOCK
+AMCHAM PHILIPPINES REDESIGN — VERSION 8 LOCK
 
 Status: APPROVED AND LOCKED
-Lock date: 2026-06-21
-Source: /mnt/data/amcham_version7_working/index.html
-SHA-256: 6d6eb5b8352a85017edf6f2a14a13cd46338ab22a237b278a55e594d2facfbde
+Locked on: 2026-06-21
 
-Version 7 includes all approved Version 6 features plus:
-- Precisely centered and normalized SVG icons across Membership and Journey cards
-- Complete dark-mode visibility and contrast audit
-- Improved visibility for committee and publication links in dark mode
-- Refined Corporate Partners presentation in dark mode
-- Corrected dark-mode visibility for icons, arrows, controls, labels, muted text, borders, navigation, contact elements, carousels, and footer content
-- Day mode preserved without visual redesign
+Version 8 preserves all approved Version 7 functionality and moves the featured-partner carousel controls into the lower-right slider footer, aligned with the counter, progress indicator, and navigation dots.
 
-This version is frozen. Do not modify or overwrite these files.
-All future changes must begin from Version 8 or later.
+Do not modify or overwrite this directory. All subsequent development must begin from Version 9 or later.

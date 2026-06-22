@@ -20,7 +20,7 @@
     })();
   </script>
 <meta content="A modern AmCham Philippines homepage redesign, Version 7 working build with a fully audited light and dark visual system." name="description"/>
-<title>Version 7 Working — AmCham Philippines — Business Moves Forward</title>
+<title>Version 8 Working — AmCham Philippines — Business Moves Forward</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;1,600&amp;display=swap" rel="stylesheet"/>
@@ -1056,8 +1056,7 @@
       background-size: 36px 36px; mask-image: linear-gradient(to bottom, transparent, #000 18%, #000 82%, transparent);
     }
     .showcase-head {
-      position: relative; z-index: 2; display: flex; align-items: end; justify-content: space-between;
-      gap: 28px; margin-bottom: 28px;
+      position: relative; z-index: 2; display: block; margin-bottom: 28px;
     }
     .showcase-head h2 {
       margin: 11px 0 0; max-width: 760px; color: var(--text-strong);
@@ -1065,7 +1064,10 @@
     }
     .showcase-head h2 em { color: var(--red-600); font-family: "Playfair Display", serif; font-weight: 600; }
     .showcase-head p { max-width: 670px; margin: 16px 0 0; color: var(--text-body); line-height: 1.75; }
-    .showcase-controls { display: flex; align-items: center; gap: 9px; flex: 0 0 auto; }
+    .showcase-controls {
+      display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex: 0 0 auto;
+      justify-self: end;
+    }
     .showcase-control {
       width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 50%;
       display: grid; place-items: center; color: var(--text-strong); background: var(--surface-1);
@@ -1124,9 +1126,22 @@
     }
 
     .showcase-footer {
-      position: relative; z-index: 3; padding: 18px 20px; display: grid; grid-template-columns: auto 1fr auto;
-      gap: 18px; align-items: center; border-top: 1px solid rgba(255,255,255,.1); color: white;
-      background: rgba(3,13,27,.82); backdrop-filter: blur(14px);
+      position: relative; z-index: 3; padding: 16px 18px; display: grid;
+      grid-template-columns: auto minmax(110px, 1fr) auto auto;
+      gap: 16px; align-items: center; border-top: 1px solid rgba(255,255,255,.1); color: white;
+      background: rgba(3,13,27,.88); backdrop-filter: blur(16px);
+    }
+    .showcase-footer .showcase-controls { padding-left: 2px; }
+    .showcase-footer .showcase-control {
+      width: 40px; height: 40px; color: #fff; background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.18); box-shadow: none;
+    }
+    .showcase-footer .showcase-control:hover {
+      color: #fff; background: rgba(255,255,255,.15); border-color: rgba(255,98,116,.72);
+      transform: translateY(-2px);
+    }
+    .showcase-footer .showcase-control:focus-visible {
+      outline: 2px solid #ff7182; outline-offset: 3px;
     }
     .showcase-count { min-width: 56px; font-size: 11px; font-weight: 800; letter-spacing: .11em; }
     .showcase-count span { color: #ff6274; }
@@ -1144,31 +1159,38 @@
 
     html[data-theme="dark"] .community-showcase { background: radial-gradient(circle at 8% 15%, rgba(239,51,73,.1), transparent 24%), radial-gradient(circle at 92% 70%, rgba(58,123,205,.13), transparent 28%), var(--surface-0); }
     html[data-theme="dark"] .community-showcase::before { background-image: linear-gradient(rgba(180,204,233,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(180,204,233,.035) 1px, transparent 1px); }
-    html[data-theme="dark"] .showcase-control { color: var(--text-strong); background: var(--surface-1); border-color: var(--line); }
+    html[data-theme="dark"] .showcase-footer .showcase-control {
+      color: #f7fbff; background: rgba(255,255,255,.09); border-color: rgba(196,217,243,.22);
+    }
     html[data-theme="dark"] .showcase-carousel { border-color: rgba(85,117,153,.3); box-shadow: 0 35px 95px rgba(0,0,0,.43); }
 
     @media (max-width: 860px) {
       .community-showcase { padding: 12px 0 82px; }
       .showcase-slide { aspect-ratio: 5 / 3; }
-      .showcase-head { align-items: flex-start; }
+      .showcase-head { display: block; }
       .showcase-head p { font-size: 14px; }
     }
 
     @media (max-width: 620px) {
-      .showcase-head { display: grid; gap: 20px; }
+      .showcase-head { display: block; }
       .showcase-head h2 { font-size: 39px; }
       .showcase-controls { gap: 6px; }
-      .showcase-control { width: 41px; height: 41px; }
+      .showcase-footer .showcase-control { width: 39px; height: 39px; }
       .showcase-carousel { border-radius: 22px; }
       .showcase-slide { aspect-ratio: 5 / 3; min-height: 0; }
       .showcase-ad .swiper-slide-bg { background-size: contain !important; background-color: #fff; }
       .showcase-ordinal { right: 10px; top: 10px; min-width: 58px; padding: 7px 9px; font-size: 9px; }
-      .showcase-footer { grid-template-columns: auto 1fr; gap: 12px; padding: 15px 16px; }
-      .showcase-dots { grid-column: 1 / -1; justify-content: center; max-width: none; }
+      .showcase-footer {
+        grid-template-columns: auto minmax(28px, 1fr) auto; gap: 11px; padding: 14px 14px 13px;
+      }
+      .showcase-dots { grid-column: 1 / -1; grid-row: 2; justify-content: center; max-width: none; padding-top: 2px; }
+      .showcase-footer .showcase-controls { grid-column: 3; grid-row: 1; }
     }
 
 
 
+
+    /* Version 8: promotion controls moved into the carousel footer. */
     /* Version 7: dark-mode readability and corporate-partner refinement. */
     html[data-theme="dark"] .section-head .text-link {
       color: #e4eeff;
@@ -1949,11 +1971,6 @@
 <div class="container">
 <div class="showcase-head reveal">
 <div><span class="eyebrow">Featured from the business community</span><h2 id="showcaseTitle">Official partner campaigns from the <em>AmCham network.</em></h2><p>The original promotional artwork from the live AmCham homepage is presented in a cleaner, responsive and fully interactive carousel.</p></div>
-<div aria-label="Slider controls" class="showcase-controls">
-<button aria-label="Previous promotion" class="showcase-control" id="showcasePrev" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="19"><path d="m15 18-6-6 6-6"></path></svg></button>
-<button aria-label="Pause automatic slides" aria-pressed="false" class="showcase-control showcase-play" id="showcasePlay" type="button"><svg class="pause-icon" fill="currentColor" viewbox="0 0 24 24" width="17"><path d="M7 5h4v14H7zM13 5h4v14h-4z"></path></svg><svg class="play-icon" fill="currentColor" viewbox="0 0 24 24" width="18"><path d="m8 5 11 7-11 7z"></path></svg></button>
-<button aria-label="Next promotion" class="showcase-control" id="showcaseNext" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="19"><path d="m9 18 6-6-6-6"></path></svg></button>
-</div>
 </div>
 <div aria-label="AmCham promotional campaigns" aria-roledescription="carousel" class="showcase-carousel reveal elementor-element elementor-element-98293b2" id="showcaseCarousel" role="region" tabindex="0">
 <div class="showcase-track" id="showcaseTrack">
@@ -2022,6 +2039,11 @@
 <div class="showcase-count"><span id="showcaseCurrent">01</span> / 12</div>
 <div aria-hidden="true" class="showcase-progress"><div class="showcase-progress-bar" id="showcaseProgress"></div></div>
 <div aria-label="Choose a promotion" class="showcase-dots" id="showcaseDots"></div>
+<div aria-label="Slider controls" class="showcase-controls">
+<button aria-label="Previous promotion" class="showcase-control" id="showcasePrev" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="19"><path d="m15 18-6-6 6-6"></path></svg></button>
+<button aria-label="Pause automatic slides" aria-pressed="false" class="showcase-control showcase-play" id="showcasePlay" type="button"><svg class="pause-icon" fill="currentColor" viewbox="0 0 24 24" width="17"><path d="M7 5h4v14H7zM13 5h4v14h-4z"></path></svg><svg class="play-icon" fill="currentColor" viewbox="0 0 24 24" width="18"><path d="m8 5 11 7-11 7z"></path></svg></button>
+<button aria-label="Next promotion" class="showcase-control" id="showcaseNext" type="button"><svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="19"><path d="m9 18 6-6-6-6"></path></svg></button>
+</div>
 </div>
 <div aria-live="polite" aria-atomic="true" class="showcase-live" id="showcaseLive"></div>
 </div>
