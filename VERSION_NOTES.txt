@@ -1,0 +1,11 @@
+AMCHAM PHILIPPINES REDESIGN — VERSION 10 WORKING
+
+Created from approved and locked Version 9 on 2026-06-21.
+
+VERSION 10 CHANGES
+- Completed a mobile-only dark-mode visibility pass for text, icons, links, controls, cards, navigation, footer, quick actions, and the assistant interface.
+- Increased mobile night-mode contrast without changing desktop styling or day mode.
+- Moved the Featured Business Community carousel controls to a dedicated bottom row beneath the progress and dots on mobile/tablet screens.
+- Verified Previous, Pause/Play, and Next controls remain clickable and functional.
+
+Version 9 remains locked and unchanged.
