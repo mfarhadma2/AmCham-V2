@@ -1,0 +1,14 @@
+AMCHAM PHILIPPINES REDESIGN — VERSION 7 WORKING
+
+Base: Locked Version 6
+Status: Working / not locked
+
+Current refinements:
+- Membership and journey-card SVG icons are precisely centered and consistently sized.
+- Generic nested-span styles no longer override icon containers.
+- Completed a full dark-mode visibility audit across navigation, mega menus, search, cards, committees, impact, publications, events, carousels, contact routes, quick actions, assistant controls and footer.
+- Strengthened dark-mode text, muted copy, action links, arrows, controls, borders and icon contrast.
+- Corrected mega-menu and search-result icon alignment conflicts caused by generic span rules.
+- Refined the Corporate Partners dark-mode presentation.
+- Day-mode presentation and all locked Version 6 functionality are preserved.
+- Dark-mode contrast validation found no visible text elements below the configured audit threshold in the tested build.

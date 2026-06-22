@@ -1,22 +1,17 @@
-AMCHAM PHILIPPINES REDESIGN — VERSION 6 LOCK RECORD
+AMCHAM PHILIPPINES REDESIGN — VERSION 7 LOCK
 
 Status: APPROVED AND LOCKED
+Lock date: 2026-06-21
+Source: /mnt/data/amcham_version7_working/index.html
+SHA-256: 6d6eb5b8352a85017edf6f2a14a13cd46338ab22a237b278a55e594d2facfbde
 
-Version 6 preserves all approved Version 5 functionality and adds/refines the hero-area AmCham events slider.
+Version 7 includes all approved Version 6 features plus:
+- Precisely centered and normalized SVG icons across Membership and Journey cards
+- Complete dark-mode visibility and contrast audit
+- Improved visibility for committee and publication links in dark mode
+- Refined Corporate Partners presentation in dark mode
+- Corrected dark-mode visibility for icons, arrows, controls, labels, muted text, borders, navigation, contact elements, carousels, and footer content
+- Day mode preserved without visual redesign
 
-Locked Version 6 includes:
-- All Version 5 approved features and official live navigation links
-- Flush-to-top sticky header behavior
-- No right-side dotted page navigation
-- Promotional slider after the AmCham–ARTA Action Portal
-- Wider hero event card
-- Hero event slider using the official AmCham event banners and destinations represented in the supplied reference
-- Professional event-focused header and actions
-- Autoplay, previous/next controls, pagination dots, keyboard navigation, and swipe/drag support
-- Corrected click and pointer-event handling for arrows, dots, active slide links, and swipe gestures
-- Responsive desktop, tablet, and mobile layouts
-- Light/dark theme support
-- Existing chatbot, quick actions, contact section, animations, and accessibility behavior
-
-Do not overwrite or modify this locked version.
-All future changes must begin from Version 7 using this locked Version 6 as the baseline.
+This version is frozen. Do not modify or overwrite these files.
+All future changes must begin from Version 8 or later.
